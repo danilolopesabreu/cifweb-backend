@@ -13,6 +13,6 @@ public interface CifServicoRepository extends PanacheRepository<CifServico>{
 	
 	public List<CifServico> consultarPorTipoVinculo(final TipoVinculo tipoVinculo);
 	
-	public List<CifServico> listarServicosPrincipais();
+	public List<CifServico> listarCifsServicosPrincipais();
 	
 }

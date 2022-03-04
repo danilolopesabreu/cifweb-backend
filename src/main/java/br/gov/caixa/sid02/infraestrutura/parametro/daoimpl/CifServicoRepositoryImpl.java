@@ -7,7 +7,7 @@ import br.gov.caixa.sid02.dominio.parametro.modelo.CifServicoId;
 import br.gov.caixa.sid02.dominio.parametro.modelo.TipoVinculo;
 import br.gov.caixa.sid02.dominio.parametro.repository.CifServicoRepository;
 
-public class CifServicoRepositoryImpl implements CifServicoRepository{
+public class CifServicoRepositoryImpl implements CifServicoRepository {
 
 	@Override
 	public List<CifServico> consultarPorCifServicoETipoVinculo(CifServicoId cifServicoId, TipoVinculo tipoVinculo) {
@@ -22,7 +22,7 @@ public class CifServicoRepositoryImpl implements CifServicoRepository{
 	}
 
 	@Override
-	public List<CifServico> listarServicosPrincipais() {
+	public List<CifServico> listarCifsServicosPrincipais() {
 		// TODO Auto-generated method stub
 		return null;
 	}
