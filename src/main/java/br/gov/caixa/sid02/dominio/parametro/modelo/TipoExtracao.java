@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.gov.caixa.sid02.dominio.formulario.TipoExtracaoSlndo;
+import br.gov.caixa.sid02.dominio.formulario.modelo.TipoExtracaoSlndo;
 
 /**
  * TipoExtracao

@@ -12,7 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.gov.caixa.sid02.dominio.formulario.SlctoManutencaoCif;
+import br.gov.caixa.sid02.dominio.formulario.modelo.SlctoManutencaoCif;
 
 /**
  * CifServico

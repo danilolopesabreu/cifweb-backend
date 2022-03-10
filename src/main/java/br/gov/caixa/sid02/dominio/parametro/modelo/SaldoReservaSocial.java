@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.gov.caixa.sid02.dominio.formulario.RsrvaSocialSlndo;
+import br.gov.caixa.sid02.dominio.formulario.modelo.RsrvaSocialSlndo;
 
 /**
  * SaldoReservaSocial
