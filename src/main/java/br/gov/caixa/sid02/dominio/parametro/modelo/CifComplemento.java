@@ -20,7 +20,9 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB201_CIF_COMPLEMENTO")
-public class CifComplemento implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class CifComplemento implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	private CifComplementoId id;
 	private CifServico cifServicoByFkD02tb201D02tb200Vnclr;

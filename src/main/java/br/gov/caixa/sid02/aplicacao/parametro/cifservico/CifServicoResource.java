@@ -5,13 +5,17 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto.CifComplementoDto;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto.CifServicoDto;
+import br.gov.caixa.sid02.aplicacao.parametro.cifservico.mapper.CifComplementoMapper;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.mapper.CifServicoMapper;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.service.CifServicoService;
+import br.gov.caixa.sid02.dominio.parametro.modelo.CifComplemento;
 import br.gov.caixa.sid02.dominio.parametro.modelo.CifServico;
 
 @Path("/cif-servico")
@@ -25,12 +29,24 @@ public class CifServicoResource {
 	@Inject
 	protected CifServicoMapper cifServicoMapper;
 	
+	@Inject
+	protected CifComplementoMapper cifComplementoMapper;
+	
 	@GET
 	@Path("principais")
     public List<CifServicoDto> listarPrincipaisCifServico() {
 		final List<CifServico> listaDeCifsPrincipais = this.cifServicoService.listarPrincipaisCifServico();
 		final List<CifServicoDto> listaDeCifServicoDto = this.cifServicoMapper.fromListCifServico(listaDeCifsPrincipais);
         return listaDeCifServicoDto;
+    }
+	
+	@POST
+	@Path("complementos")
+    public List<CifComplementoDto> listarComplementosCifServico(CifServicoDto cifServicoDto) {
+		final CifServico cifServico = this.cifServicoMapper.toCifServico(cifServicoDto);
+		final List<CifComplemento> cifComplementos = this.cifServicoService.listarComplementosCifServico(cifServico.getId());
+		final List<CifComplementoDto> cifComplementosDtos = this.cifComplementoMapper.fromListCifComplemento(cifComplementos);
+        return cifComplementosDtos;
     }
 	
 }

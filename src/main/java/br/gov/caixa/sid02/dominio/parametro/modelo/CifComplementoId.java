@@ -2,6 +2,7 @@ package br.gov.caixa.sid02.dominio.parametro.modelo;
 
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -9,7 +10,9 @@ import javax.persistence.Embeddable;
  * CifComplementoId
  */
 @Embeddable
-public class CifComplementoId implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class CifComplementoId implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	private byte nuAcaoVinculador;
 	private byte nuModoVinculador;
@@ -27,6 +30,15 @@ public class CifComplementoId implements java.io.Serializable {private static fi
 		this.nuGrupoVinculador = nuGrupoVinculador;
 		this.nuSqnclCifSrvcoVinculador = nuSqnclCifSrvcoVinculador;
 		this.inicioVigencia = inicioVigencia;
+	}
+	
+	public static CifComplementoId of(CifServicoId cifServicoId) {
+		CifComplementoId id = new CifComplementoId();
+		id.setNuAcaoVinculador(cifServicoId.getNuAcao());
+		id.setNuModoVinculador(cifServicoId.getNuModo());
+		id.setNuGrupoVinculador(cifServicoId.getNuGrupo());
+		id.setNuSqnclCifSrvcoVinculador(cifServicoId.getNuSequencialCifServico());
+		return id;
 	}
 
 	@Column(name = "NU_ACAO_VINCULADOR_200", nullable = false, precision = 2, scale = 0)

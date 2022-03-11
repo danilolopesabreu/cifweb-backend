@@ -9,7 +9,6 @@ import br.gov.caixa.sid02.dominio.parametro.modelo.CifServicoId;
 import br.gov.caixa.sid02.dominio.parametro.modelo.TipoVinculo;
 import br.gov.caixa.sid02.dominio.parametro.repository.CifServicoRepository;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
-import io.quarkus.panache.common.Parameters;
 
 @ApplicationScoped
 public class CifServicoRepositoryImpl implements PanacheRepository<CifServico>, CifServicoRepository {
@@ -27,9 +26,13 @@ public class CifServicoRepositoryImpl implements PanacheRepository<CifServico>, 
 	@Override
 	public List<CifServico> listarCifsServicosPrincipais() {
 		return list(
-				"select cf from CifServico cf "
-				+ "where icServicoPrincipal = 'S' "
-				+ "order by id.nuSequencialCifServico");
+				"select "
+				+ "new br.gov.caixa.sid02.dominio.parametro.modelo.CifServico("
+				+ "cs.id, cs.nuSubgrupo, cs.nuTipo, cs.nuSubtipo, cs.icServicoPrincipal, cs.noServico "
+				+ ") "
+				+ "from CifServico cs "
+				+ "where cs.icServicoPrincipal = 'S' "
+				+ "order by cs.id.nuSequencialCifServico");
 	}
 
 

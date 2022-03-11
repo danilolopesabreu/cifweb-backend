@@ -20,13 +20,13 @@ public interface CifServicoMapper {
 	
 	CifServico toCifServico(CifServicoDto cifServicoDto);
 	
-	List<CifServicoDto> fromListCifServico(List<CifServico> cifServico);
+	List<CifServicoDto> fromListCifServico(List<CifServico> cifServicos);
 	
-	List<CifServico> toListCifServico(List<CifServicoDto> cifServicoDto);
+	List<CifServico> toListCifServico(List<CifServicoDto> cifServicoDtos);
 	
-	CifCoreografiaDto map(CifCoreografia value);
+	CifCoreografiaDto map(CifCoreografia cifCoreografia);
 	
-	CifSrvcoPrpreFrmroDto map(CifSrvcoPrpreFrmro value);
+	CifSrvcoPrpreFrmroDto map(CifSrvcoPrpreFrmro cifSrvcoPrpreFrmro);
 	
-	SlctoManutencaoCifDto map(SlctoManutencaoCif value);
+	SlctoManutencaoCifDto map(SlctoManutencaoCif slctoManutencaoCif);
 }

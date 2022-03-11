@@ -44,6 +44,17 @@ public class CifServico implements java.io.Serializable {
 		this.icServicoPrincipal = icServicoPrincipal;
 		this.noServico = noServico;
 	}
+	
+	public CifServico(CifServicoId id, Short nuSubgrupo, Short nuTipo, Short nuSubtipo, char icServicoPrincipal,
+			String noServico) {
+		super();
+		this.id = id;
+		this.nuSubgrupo = nuSubgrupo;
+		this.nuTipo = nuTipo;
+		this.nuSubtipo = nuSubtipo;
+		this.icServicoPrincipal = icServicoPrincipal;
+		this.noServico = noServico;
+	}
 
 	public CifServico(CifServicoId id, Short nuSubgrupo, Short nuTipo, Short nuSubtipo, char icServicoPrincipal,
 			String noServico, Set<CifComplemento> cifComplementosForFkD02tb201D02tb200Vnclr,
@@ -122,7 +133,7 @@ public class CifServico implements java.io.Serializable {
 		this.noServico = noServico;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServicoByFkD02tb201D02tb200Vnclr")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServicoByFkD02tb201D02tb200Vnclr", orphanRemoval = true)
 	public Set<CifComplemento> getCifComplementosForFkD02tb201D02tb200Vnclr() {
 		return this.cifComplementosForFkD02tb201D02tb200Vnclr;
 	}
@@ -132,7 +143,7 @@ public class CifServico implements java.io.Serializable {
 		this.cifComplementosForFkD02tb201D02tb200Vnclr = cifComplementosForFkD02tb201D02tb200Vnclr;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico", orphanRemoval = true)
 	public Set<CifCoreografia> getCifCoreografias() {
 		return this.cifCoreografias;
 	}
@@ -141,7 +152,7 @@ public class CifServico implements java.io.Serializable {
 		this.cifCoreografias = cifCoreografias;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServicoByFkD02tb201D02tb200Vncdo")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServicoByFkD02tb201D02tb200Vncdo", orphanRemoval = true)
 	public Set<CifComplemento> getCifComplementosForFkD02tb201D02tb200Vncdo() {
 		return this.cifComplementosForFkD02tb201D02tb200Vncdo;
 	}
@@ -151,7 +162,7 @@ public class CifServico implements java.io.Serializable {
 		this.cifComplementosForFkD02tb201D02tb200Vncdo = cifComplementosForFkD02tb201D02tb200Vncdo;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico", orphanRemoval = true)
 	public Set<SlctoManutencaoCif> getSlctoManutencaoCifs() {
 		return this.slctoManutencaoCifs;
 	}
@@ -160,7 +171,7 @@ public class CifServico implements java.io.Serializable {
 		this.slctoManutencaoCifs = slctoManutencaoCifs;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico", orphanRemoval = true)
 	public Set<CifSrvcoPrpreFrmro> getCifSrvcoPrpreFrmros() {
 		return this.cifSrvcoPrpreFrmros;
 	}
