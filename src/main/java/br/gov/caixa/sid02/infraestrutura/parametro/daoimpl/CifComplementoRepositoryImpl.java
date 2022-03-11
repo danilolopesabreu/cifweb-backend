@@ -23,7 +23,11 @@ public class CifComplementoRepositoryImpl implements PanacheRepository<CifComple
 				find("select "
 						+ "cc "
 						+ "from CifComplemento cc "
-						+ "where cc.cifServicoByFkD02tb201D02tb200Vnclr.id = :cifservicoid", params).list();
+						+ "join fetch cc.cifServicoByFkD02tb201D02tb200Vncdo vncdo "
+						+ "join fetch vncdo.cifCoreografias "
+						+ "join fetch vncdo.cifSrvcoPrpreFrmros "
+						+ "where "
+						+ "	cc.cifServicoByFkD02tb201D02tb200Vnclr.id = :cifservicoid", params).list();
 		
 		return retorno;
 	}
