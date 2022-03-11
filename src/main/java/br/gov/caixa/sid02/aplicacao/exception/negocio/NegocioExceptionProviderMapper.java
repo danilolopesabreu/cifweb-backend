@@ -6,7 +6,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class NegocioExceptionMapper implements ExceptionMapper<NegocioException> {
+public class NegocioExceptionProviderMapper implements ExceptionMapper<NegocioException> {
 
 	@Override
 	public Response toResponse(NegocioException exception) {

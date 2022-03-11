@@ -1,4 +1,4 @@
-package br.gov.caixa.sid02.aplicacao.dto_validation;
+package br.gov.caixa.sid02.aplicacao.dto.validation;
 
 import javax.validation.ConstraintValidatorContext;
 

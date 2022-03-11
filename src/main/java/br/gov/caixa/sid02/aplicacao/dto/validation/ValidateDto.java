@@ -1,4 +1,4 @@
-package br.gov.caixa.sid02.aplicacao.dto_validation;
+package br.gov.caixa.sid02.aplicacao.dto.validation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

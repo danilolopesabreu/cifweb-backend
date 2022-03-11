@@ -7,7 +7,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class ConstraintViolationExceptionMapper implements ExceptionMapper<ConstraintViolationException>{
+public class ConstraintViolationExceptionProviderMapper implements ExceptionMapper<ConstraintViolationException>{
 
 	@Override
 	public Response toResponse(ConstraintViolationException exception) {

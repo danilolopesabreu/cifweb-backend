@@ -3,6 +3,7 @@ package br.gov.caixa.sid02.dominio.parametro.modelo;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;

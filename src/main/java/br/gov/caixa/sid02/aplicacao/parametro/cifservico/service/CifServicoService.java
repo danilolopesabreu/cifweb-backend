@@ -2,18 +2,20 @@ package br.gov.caixa.sid02.aplicacao.parametro.cifservico.service;
 
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import br.gov.caixa.sid02.dominio.parametro.modelo.CifServico;
 import br.gov.caixa.sid02.dominio.parametro.repository.CifServicoRepository;
 
+@ApplicationScoped
 public class CifServicoService {
 	
 	@Inject
-	private CifServicoRepository cifServicoRepository;
+	protected CifServicoRepository cifServicoRepository;
 	
 	public List<CifServico> listarPrincipaisCifServico(){
-		return null;
+		return this.cifServicoRepository.listarCifsServicosPrincipais();
 	}
 	
 	public List<CifServico> consultarCifServicoVinculado(final CifServico cifServicoVinculador){
