@@ -10,22 +10,31 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 public class CifServicoDto {
 
+	@JsonbTransient
 	private CifServicoIdDto id;
+	@JsonbTransient
 	private Short nuSubgrupo;
+	@JsonbTransient
 	private Short nuTipo;
+	@JsonbTransient
 	private Short nuSubtipo;
+	@JsonbTransient
 	private char icServicoPrincipal;
+	
 	private String noServico;
 	
 	@JsonManagedReference 
-	private Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vnclr = new HashSet<CifComplementoDto>(0);
+	private Set<CifComplementoDto> complementos = new HashSet<CifComplementoDto>(0);
 	
 //	@JsonBackReference
 	@JsonbTransient
 	private Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vncdo = new HashSet<CifComplementoDto>(0);
 	
+	@JsonbTransient
 	private Set<CifCoreografiaDto> cifCoreografias = new HashSet<CifCoreografiaDto>(0);
+	@JsonbTransient
 	private Set<CifSrvcoPrpreFrmroDto> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmroDto>(0);
+	@JsonbTransient
 	private Set<SlctoManutencaoCifDto> slctoManutencaoCifs = new HashSet<SlctoManutencaoCifDto>(0);
 
 	public CifServicoDto() {
@@ -84,13 +93,13 @@ public class CifServicoDto {
 		this.noServico = noServico;
 	}
 
-	public Set<CifComplementoDto> getCifComplementosForFkD02tb201D02tb200Vnclr() {
-		return cifComplementosForFkD02tb201D02tb200Vnclr;
+	public Set<CifComplementoDto> getComplementos() {
+		return complementos;
 	}
 
-	public void setCifComplementosForFkD02tb201D02tb200Vnclr(
+	public void setComplementos(
 			Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vnclr) {
-		this.cifComplementosForFkD02tb201D02tb200Vnclr = cifComplementosForFkD02tb201D02tb200Vnclr;
+		this.complementos = cifComplementosForFkD02tb201D02tb200Vnclr;
 	}
 
 	public Set<CifComplementoDto> getCifComplementosForFkD02tb201D02tb200Vncdo() {

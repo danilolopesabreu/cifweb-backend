@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import br.gov.caixa.sid02.aplicacao.dto.mapper.CycleAvoidingMappingContext;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto.CifComplementoDto;
@@ -20,8 +21,9 @@ import br.gov.caixa.sid02.dominio.parametro.modelo.CifSrvcoPrpreFrmro;
 @Mapper(componentModel = "cdi")
 public interface CifServicoMapper {
 	
+	@Mapping(target = "complementos", source = "cifComplementosForFkD02tb201D02tb200Vnclr")
 	CifServicoDto fromCifServico(CifServico cifServico, @Context CycleAvoidingMappingContext context);
-	
+	 
 	CifServico toCifServico(CifServicoDto cifServicoDto);
 	
 	List<CifServicoDto> fromListCifServico(List<CifServico> cifServicos);
@@ -30,6 +32,9 @@ public interface CifServicoMapper {
 	
 	List<CifComplementoDto> fromCifComplemento(List<CifComplemento> cifComplemento, @Context CycleAvoidingMappingContext context);
 	
+	@Mapping(target = "cifServicoVinculado", source = "cifServicoByFkD02tb201D02tb200Vncdo")
+	CifComplementoDto cifComplementoToCifComplementoDto(CifComplemento cifComplemento, @Context CycleAvoidingMappingContext context);
+
 	CifCoreografiaDto map(CifCoreografia cifCoreografia);
 	
 	CifSrvcoPrpreFrmroDto map(CifSrvcoPrpreFrmro cifSrvcoPrpreFrmro);

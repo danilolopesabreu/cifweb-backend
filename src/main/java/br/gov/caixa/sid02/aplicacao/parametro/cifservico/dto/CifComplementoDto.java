@@ -9,7 +9,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class CifComplementoDto {
 
-	private CifComplementoDtoId id;
+//	@JsonIgnoreProperties("cifComplementosForFkD02tb201D02tb200Vnclr")
+	private CifServicoDto cifServicoVinculado;
 	
 //	@JsonBackReference
 //	@JsonManagedReference 
@@ -17,12 +18,16 @@ public class CifComplementoDto {
 	@JsonbTransient
 	private CifServicoDto cifServicoByFkD02tb201D02tb200Vnclr;
 	
-	@JsonIgnoreProperties("cifComplementosForFkD02tb201D02tb200Vnclr")
-	private CifServicoDto cifServicoByFkD02tb201D02tb200Vncdo;
+	@JsonbTransient
+	private CifComplementoDtoId id;
 	
+	@JsonbTransient
 	private TipoVinculoDto tipoVinculo;
+	@JsonbTransient
 	private char icMandatorio;
+	@JsonbTransient
 	private Date fimVigencia;
+	@JsonbTransient
 	private String coUsuario;
 
 	public CifComplementoDtoId getId() {
@@ -41,12 +46,12 @@ public class CifComplementoDto {
 		this.cifServicoByFkD02tb201D02tb200Vnclr = cifServicoByFkD02tb201D02tb200Vnclr;
 	}
 
-	public CifServicoDto getCifServicoByFkD02tb201D02tb200Vncdo() {
-		return cifServicoByFkD02tb201D02tb200Vncdo;
+	public CifServicoDto getCifServicoVinculado() {
+		return cifServicoVinculado;
 	}
 
-	public void setCifServicoByFkD02tb201D02tb200Vncdo(CifServicoDto cifServicoByFkD02tb201D02tb200Vncdo) {
-		this.cifServicoByFkD02tb201D02tb200Vncdo = cifServicoByFkD02tb201D02tb200Vncdo;
+	public void setCifServicoVinculado(CifServicoDto cifServicoByFkD02tb201D02tb200Vncdo) {
+		this.cifServicoVinculado = cifServicoByFkD02tb201D02tb200Vncdo;
 	}
 
 	public TipoVinculoDto getTipoVinculo() {
