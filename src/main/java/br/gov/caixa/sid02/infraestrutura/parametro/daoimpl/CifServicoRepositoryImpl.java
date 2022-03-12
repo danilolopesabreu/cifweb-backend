@@ -1,6 +1,8 @@
 package br.gov.caixa.sid02.infraestrutura.parametro.daoimpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -19,8 +21,18 @@ public class CifServicoRepositoryImpl implements PanacheRepository<CifServico>, 
 	}
 
 	@Override
-	public List<CifServico> listarPorTipoVinculo(TipoVinculo tipoVinculo) {
-		return null;
+	public CifServico listarPorCifServicoId(final CifServicoId cifServicoId) {
+		final Map<String, Object> params = new HashMap<String, Object>();
+		params.put("cifservicoid", cifServicoId);
+		
+		return find("select "
+				+ "cs "
+				+ "from CifServico cs "
+				+ "join fetch cs.cifComplementosForFkD02tb201D02tb200Vnclr "
+				+ "join fetch cs.cifCoreografias "
+				+ "join fetch cs.cifSrvcoPrpreFrmros "
+				+ "where "
+				+ "cs.id = :cifservicoid", params).singleResult();
 	}
 
 	@Override

@@ -23,6 +23,10 @@ public class CifServicoService {
 		return this.cifServicoRepository.listarCifsServicosPrincipais();
 	}
 	
+	public CifServico listarPorCifServicoId(CifServicoId cifServicoId){
+		return this.cifServicoRepository.listarPorCifServicoId(cifServicoId);
+	}
+	
 	public List<CifComplemento> listarComplementosCifServico(CifServicoId cifServicoId){
 		return this.cifComplementoService.listarComplementosPorCifServicoVinculador(cifServicoId);
 	}
