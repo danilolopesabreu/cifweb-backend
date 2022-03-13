@@ -31,7 +31,6 @@ public class CifServicoDto {
 	@JsonbTransient
 	private Set<CifCoreografiaDto> cifCoreografias = new HashSet<CifCoreografiaDto>(0);
 
-	@JsonbTransient
 	private Set<CifSrvcoPrpreFrmroDto> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmroDto>(0);
 	
 	@JsonbTransient

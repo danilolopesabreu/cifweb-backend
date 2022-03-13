@@ -30,7 +30,7 @@ public class CifServicoRepositoryImpl implements PanacheRepository<CifServico>, 
 				+ "from CifServico cs "
 				+ "join fetch cs.cifComplementosForFkD02tb201D02tb200Vnclr vnclr "
 				+ "join fetch vnclr.tipoVinculo "
-				+ "join fetch cs.cifCoreografias "
+				+ "join fetch cs.cifCoreografias coreografia "
 				+ "join fetch cs.cifSrvcoPrpreFrmros prpreFrmros "
 				+ "join fetch prpreFrmros.tipoPrpreFrmro "
 				+ "join fetch prpreFrmros.tipoConteudo "
@@ -44,7 +44,12 @@ public class CifServicoRepositoryImpl implements PanacheRepository<CifServico>, 
 				+ "left join prpreFrmros.classificacaoCndos "
 				+ "left join prpreFrmros.prioridadeConteudos "
 				+ "where "
-				+ "cs.id = :cifservicoid", params).singleResult();
+				+ "cs.id = :cifservicoid "
+				+ "and vnclr.fimVigencia = null "
+				+ "and coreografia.fimVigencia = null "
+				+ "and prpreFrmros.fimVigencia = null "
+				
+				, params).singleResult();
 	}
 
 	@Override

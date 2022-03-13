@@ -67,6 +67,7 @@ public interface CifServicoMapper {
 
 	TipoConteudoDto map(TipoConteudo value);
 
+	@Mapping(target = "nuSegmento", source = "id.nuSegmentoS")
 	SistemaConteudoDto map(SistemaConteudo value);
 
 	CanalConteudoDto map(CanalConteudo value);
