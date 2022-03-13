@@ -2,17 +2,26 @@ package br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto;
 
 import java.util.Date;
 
-import br.gov.caixa.sid02.dominio.parametro.modelo.CifServico;
-import br.gov.caixa.sid02.dominio.parametro.modelo.TipoVinculo;
+import javax.json.bind.annotation.JsonbTransient;
 
 public class CifComplementoDto {
 
+	@JsonbTransient
+	private CifServicoDto cifServicoByFkD02tb201D02tb200Vnclr;
+	
+	private CifServicoDto cifServicoVinculado;
+	
+	@JsonbTransient
 	private CifComplementoDtoId id;
-	private CifServico cifServicoByFkD02tb201D02tb200Vnclr;
-	private CifServico cifServicoByFkD02tb201D02tb200Vncdo;
-	private TipoVinculo tipoVinculo;
+	
+	private TipoVinculoDto tipoVinculo;
+	
 	private char icMandatorio;
+	
+	@JsonbTransient
 	private Date fimVigencia;
+	
+	@JsonbTransient
 	private String coUsuario;
 
 	public CifComplementoDtoId getId() {
@@ -23,27 +32,27 @@ public class CifComplementoDto {
 		this.id = id;
 	}
 
-	public CifServico getCifServicoByFkD02tb201D02tb200Vnclr() {
+	public CifServicoDto getCifServicoByFkD02tb201D02tb200Vnclr() {
 		return cifServicoByFkD02tb201D02tb200Vnclr;
 	}
 
-	public void setCifServicoByFkD02tb201D02tb200Vnclr(CifServico cifServicoByFkD02tb201D02tb200Vnclr) {
+	public void setCifServicoByFkD02tb201D02tb200Vnclr(CifServicoDto cifServicoByFkD02tb201D02tb200Vnclr) {
 		this.cifServicoByFkD02tb201D02tb200Vnclr = cifServicoByFkD02tb201D02tb200Vnclr;
 	}
 
-	public CifServico getCifServicoByFkD02tb201D02tb200Vncdo() {
-		return cifServicoByFkD02tb201D02tb200Vncdo;
+	public CifServicoDto getCifServicoVinculado() {
+		return cifServicoVinculado;
 	}
 
-	public void setCifServicoByFkD02tb201D02tb200Vncdo(CifServico cifServicoByFkD02tb201D02tb200Vncdo) {
-		this.cifServicoByFkD02tb201D02tb200Vncdo = cifServicoByFkD02tb201D02tb200Vncdo;
+	public void setCifServicoVinculado(CifServicoDto cifServicoByFkD02tb201D02tb200Vncdo) {
+		this.cifServicoVinculado = cifServicoByFkD02tb201D02tb200Vncdo;
 	}
 
-	public TipoVinculo getTipoVinculo() {
+	public TipoVinculoDto getTipoVinculo() {
 		return tipoVinculo;
 	}
 
-	public void setTipoVinculo(TipoVinculo tipoVinculo) {
+	public void setTipoVinculo(TipoVinculoDto tipoVinculo) {
 		this.tipoVinculo = tipoVinculo;
 	}
 

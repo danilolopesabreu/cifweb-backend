@@ -10,7 +10,7 @@ public interface CifServicoRepository {
 
 	public List<CifServico> listarPorCifServicoETipoVinculo(final CifServicoId cifServicoId, final TipoVinculo tipoVinculo);
 	
-	public List<CifServico> listarPorTipoVinculo(final TipoVinculo tipoVinculo);
+	public CifServico listarPorCifServicoId(final CifServicoId cifServicoId);
 	
 	public List<CifServico> listarCifsServicosPrincipais();
 	

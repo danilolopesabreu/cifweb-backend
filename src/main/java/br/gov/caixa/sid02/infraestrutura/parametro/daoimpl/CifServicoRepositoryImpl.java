@@ -1,6 +1,8 @@
 package br.gov.caixa.sid02.infraestrutura.parametro.daoimpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -19,8 +21,35 @@ public class CifServicoRepositoryImpl implements PanacheRepository<CifServico>, 
 	}
 
 	@Override
-	public List<CifServico> listarPorTipoVinculo(TipoVinculo tipoVinculo) {
-		return null;
+	public CifServico listarPorCifServicoId(final CifServicoId cifServicoId) {
+		final Map<String, Object> params = new HashMap<String, Object>();
+		params.put("cifservicoid", cifServicoId);
+		
+		return find("select "
+				+ "cs "
+				+ "from CifServico cs "
+				+ "join fetch cs.cifComplementosForFkD02tb201D02tb200Vnclr vnclr "
+				+ "join fetch vnclr.tipoVinculo "
+				+ "join fetch cs.cifCoreografias coreografia "
+				+ "join fetch cs.cifSrvcoPrpreFrmros prpreFrmros "
+				+ "join fetch prpreFrmros.tipoPrpreFrmro "
+				+ "join fetch prpreFrmros.tipoConteudo "
+				+ "left join prpreFrmros.sistemaConteudos "
+				+ "left join prpreFrmros.canalConteudos "
+				+ "left join prpreFrmros.saldoRsrvaSclCndos "
+				+ "left join prpreFrmros.detalheDebitoCndos "
+				+ "left join prpreFrmros.fncneEspecialCndos "
+				+ "left join prpreFrmros.prpreFrmroSnlSaldos "
+				+ "left join prpreFrmros.tipoExtracaoCndos "
+				+ "left join prpreFrmros.classificacaoCndos "
+				+ "left join prpreFrmros.prioridadeConteudos "
+				+ "where "
+				+ "cs.id = :cifservicoid "
+				+ "and vnclr.fimVigencia = null "
+				+ "and coreografia.fimVigencia = null "
+				+ "and prpreFrmros.fimVigencia = null "
+				
+				, params).singleResult();
 	}
 
 	@Override

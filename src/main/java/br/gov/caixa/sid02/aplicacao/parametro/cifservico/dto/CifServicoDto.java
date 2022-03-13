@@ -1,21 +1,48 @@
 package br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+
+import javax.json.bind.annotation.JsonbTransient;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 public class CifServicoDto {
 
 	private CifServicoIdDto id;
+	
+	@JsonbTransient
 	private Short nuSubgrupo;
+	@JsonbTransient
 	private Short nuTipo;
+	@JsonbTransient
 	private Short nuSubtipo;
+	@JsonbTransient
 	private char icServicoPrincipal;
+	
 	private String noServico;
-	private Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vnclr = new HashSet<CifComplementoDto>(0);
+	
+	private Set<CifComplementoDto> complementos = new HashSet<CifComplementoDto>(0);
+	
+	@JsonbTransient
 	private Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vncdo = new HashSet<CifComplementoDto>(0);
+	
+	@JsonbTransient
 	private Set<CifCoreografiaDto> cifCoreografias = new HashSet<CifCoreografiaDto>(0);
+
 	private Set<CifSrvcoPrpreFrmroDto> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmroDto>(0);
+	
+	@JsonbTransient
 	private Set<SlctoManutencaoCifDto> slctoManutencaoCifs = new HashSet<SlctoManutencaoCifDto>(0);
+
+	public CifServicoDto() {
+	}
+	
+	public CifServicoDto(CifServicoIdDto id) {
+		super();
+		this.id = id;
+	}
 
 	public CifServicoIdDto getId() {
 		return id;
@@ -65,13 +92,13 @@ public class CifServicoDto {
 		this.noServico = noServico;
 	}
 
-	public Set<CifComplementoDto> getCifComplementosForFkD02tb201D02tb200Vnclr() {
-		return cifComplementosForFkD02tb201D02tb200Vnclr;
+	public Set<CifComplementoDto> getComplementos() {
+		return complementos;
 	}
 
-	public void setCifComplementosForFkD02tb201D02tb200Vnclr(
+	public void setComplementos(
 			Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vnclr) {
-		this.cifComplementosForFkD02tb201D02tb200Vnclr = cifComplementosForFkD02tb201D02tb200Vnclr;
+		this.complementos = cifComplementosForFkD02tb201D02tb200Vnclr;
 	}
 
 	public Set<CifComplementoDto> getCifComplementosForFkD02tb201D02tb200Vncdo() {
@@ -105,6 +132,24 @@ public class CifServicoDto {
 
 	public void setSlctoManutencaoCifs(Set<SlctoManutencaoCifDto> slctoManutencaoCifs) {
 		this.slctoManutencaoCifs = slctoManutencaoCifs;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, nuSubgrupo, nuSubtipo, nuTipo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CifServicoDto other = (CifServicoDto) obj;
+		return Objects.equals(id, other.id) && Objects.equals(nuSubgrupo, other.nuSubgrupo)
+				&& Objects.equals(nuSubtipo, other.nuSubtipo) && Objects.equals(nuTipo, other.nuTipo);
 	}
 
 }
