@@ -10,8 +10,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 public class CifServicoDto {
 
-	@JsonbTransient
 	private CifServicoIdDto id;
+	
 	@JsonbTransient
 	private Short nuSubgrupo;
 	@JsonbTransient
@@ -23,17 +23,17 @@ public class CifServicoDto {
 	
 	private String noServico;
 	
-	@JsonManagedReference 
 	private Set<CifComplementoDto> complementos = new HashSet<CifComplementoDto>(0);
 	
-//	@JsonBackReference
 	@JsonbTransient
 	private Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vncdo = new HashSet<CifComplementoDto>(0);
 	
 	@JsonbTransient
 	private Set<CifCoreografiaDto> cifCoreografias = new HashSet<CifCoreografiaDto>(0);
+
 	@JsonbTransient
 	private Set<CifSrvcoPrpreFrmroDto> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmroDto>(0);
+	
 	@JsonbTransient
 	private Set<SlctoManutencaoCifDto> slctoManutencaoCifs = new HashSet<SlctoManutencaoCifDto>(0);
 

@@ -30,7 +30,7 @@ public interface CifServicoMapper {
 	
 	List<CifServico> toListCifServico(List<CifServicoDto> cifServicoDtos);
 	
-	List<CifComplementoDto> fromCifComplemento(List<CifComplemento> cifComplemento, @Context CycleAvoidingMappingContext context);
+	List<CifComplementoDto> fromCifComplemento(List<CifComplemento> cifComplemento);
 	
 	@Mapping(target = "cifServicoVinculado", source = "cifServicoByFkD02tb201D02tb200Vncdo")
 	CifComplementoDto cifComplementoToCifComplementoDto(CifComplemento cifComplemento, @Context CycleAvoidingMappingContext context);

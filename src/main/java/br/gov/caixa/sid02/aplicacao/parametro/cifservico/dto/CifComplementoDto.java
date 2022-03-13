@@ -4,29 +4,23 @@ import java.util.Date;
 
 import javax.json.bind.annotation.JsonbTransient;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 public class CifComplementoDto {
 
-//	@JsonIgnoreProperties("cifComplementosForFkD02tb201D02tb200Vnclr")
-	private CifServicoDto cifServicoVinculado;
-	
-//	@JsonBackReference
-//	@JsonManagedReference 
-	@JsonBackReference
 	@JsonbTransient
 	private CifServicoDto cifServicoByFkD02tb201D02tb200Vnclr;
+	
+	private CifServicoDto cifServicoVinculado;
 	
 	@JsonbTransient
 	private CifComplementoDtoId id;
 	
-	@JsonbTransient
 	private TipoVinculoDto tipoVinculo;
-	@JsonbTransient
+	
 	private char icMandatorio;
+	
 	@JsonbTransient
 	private Date fimVigencia;
+	
 	@JsonbTransient
 	private String coUsuario;
 
