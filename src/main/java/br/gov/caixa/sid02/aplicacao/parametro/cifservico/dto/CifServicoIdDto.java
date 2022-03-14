@@ -3,11 +3,35 @@ package br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto;
 import java.util.Objects;
 
 public class CifServicoIdDto {
-	
-	private byte nuAcao;
-	private byte nuModo;
-	private byte nuGrupo;
+
+	private Short nuAcao;
+	private Short nuModo;
+	private Short nuGrupo;
 	private int nuSequencialCifServico;
+
+	public Short getNuAcao() {
+		return nuAcao;
+	}
+
+	public void setNuAcao(Short nuAcao) {
+		this.nuAcao = nuAcao;
+	}
+
+	public Short getNuModo() {
+		return nuModo;
+	}
+
+	public void setNuModo(Short nuModo) {
+		this.nuModo = nuModo;
+	}
+
+	public Short getNuGrupo() {
+		return nuGrupo;
+	}
+
+	public void setNuGrupo(Short nuGrupo) {
+		this.nuGrupo = nuGrupo;
+	}
 
 	public int getNuSequencialCifServico() {
 		return nuSequencialCifServico;
@@ -15,30 +39,6 @@ public class CifServicoIdDto {
 
 	public void setNuSequencialCifServico(int nuSequencialCifServico) {
 		this.nuSequencialCifServico = nuSequencialCifServico;
-	}
-
-	public byte getNuAcao() {
-		return nuAcao;
-	}
-
-	public void setNuAcao(byte nuAcao) {
-		this.nuAcao = nuAcao;
-	}
-
-	public byte getNuModo() {
-		return nuModo;
-	}
-
-	public void setNuModo(byte nuModo) {
-		this.nuModo = nuModo;
-	}
-
-	public byte getNuGrupo() {
-		return nuGrupo;
-	}
-
-	public void setNuGrupo(byte nuGrupo) {
-		this.nuGrupo = nuGrupo;
 	}
 
 	@Override

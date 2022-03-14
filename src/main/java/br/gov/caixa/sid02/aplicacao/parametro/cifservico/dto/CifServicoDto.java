@@ -6,42 +6,40 @@ import java.util.Set;
 
 import javax.json.bind.annotation.JsonbTransient;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 public class CifServicoDto {
 
-	private CifServicoIdDto id;
-	
-	@JsonbTransient
-	private Short nuSubgrupo;
-	@JsonbTransient
-	private Short nuTipo;
-	@JsonbTransient
-	private Short nuSubtipo;
-	@JsonbTransient
-	private char icServicoPrincipal;
-	
 	private String noServico;
-	
+	private CifServicoIdDto id;
+	private Short nuSubgrupo;
+	private Short nuTipo;
+	private Short nuSubtipo;
+	private char icServicoPrincipal;
+
 	private Set<CifComplementoDto> complementos = new HashSet<CifComplementoDto>(0);
-	
+
 	@JsonbTransient
 	private Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vncdo = new HashSet<CifComplementoDto>(0);
-	
-	@JsonbTransient
+
 	private Set<CifCoreografiaDto> cifCoreografias = new HashSet<CifCoreografiaDto>(0);
 
 	private Set<CifSrvcoPrpreFrmroDto> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmroDto>(0);
-	
-	@JsonbTransient
+
 	private Set<SlctoManutencaoCifDto> slctoManutencaoCifs = new HashSet<SlctoManutencaoCifDto>(0);
 
 	public CifServicoDto() {
 	}
-	
+
 	public CifServicoDto(CifServicoIdDto id) {
 		super();
 		this.id = id;
+	}
+
+	public String getNoServico() {
+		return noServico;
+	}
+
+	public void setNoServico(String noServico) {
+		this.noServico = noServico;
 	}
 
 	public CifServicoIdDto getId() {
@@ -84,21 +82,12 @@ public class CifServicoDto {
 		this.icServicoPrincipal = icServicoPrincipal;
 	}
 
-	public String getNoServico() {
-		return noServico;
-	}
-
-	public void setNoServico(String noServico) {
-		this.noServico = noServico;
-	}
-
 	public Set<CifComplementoDto> getComplementos() {
 		return complementos;
 	}
 
-	public void setComplementos(
-			Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vnclr) {
-		this.complementos = cifComplementosForFkD02tb201D02tb200Vnclr;
+	public void setComplementos(Set<CifComplementoDto> complementos) {
+		this.complementos = complementos;
 	}
 
 	public Set<CifComplementoDto> getCifComplementosForFkD02tb201D02tb200Vncdo() {
