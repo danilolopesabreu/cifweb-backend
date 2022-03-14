@@ -25,29 +25,29 @@ public class CifServicoRepositoryImpl implements PanacheRepository<CifServico>, 
 		final Map<String, Object> params = new HashMap<String, Object>();
 		params.put("cifservicoid", cifServicoId);
 		
-		return find("select "
+		return find("SELECT "
 				+ "cs "
-				+ "from CifServico cs "
-				+ "join fetch cs.cifComplementosForFkD02tb201D02tb200Vnclr vnclr "
-				+ "left join vnclr.tipoVinculo "
-				+ "left join cs.cifSrvcoPrpreFrmros prpreFrmros "
-				+ "left join prpreFrmros.tipoPrpreFrmro "
-				+ "left join prpreFrmros.tipoConteudo "
-				+ "left join cs.cifCoreografias coreografia "
-				+ "left join prpreFrmros.sistemaConteudos "
-				+ "left join prpreFrmros.canalConteudos "
-				+ "left join prpreFrmros.saldoRsrvaSclCndos "
-				+ "left join prpreFrmros.detalheDebitoCndos "
-				+ "left join prpreFrmros.fncneEspecialCndos "
-				+ "left join prpreFrmros.prpreFrmroSnlSaldos "
-				+ "left join prpreFrmros.tipoExtracaoCndos "
-				+ "left join prpreFrmros.classificacaoCndos "
-				+ "left join prpreFrmros.prioridadeConteudos "
-				+ "where "
+				+ "FROM CifServico cs "
+				+ "JOIN FETCH cs.cifComplementosForFkD02tb201D02tb200Vnclr vnclr "
+				+ "JOIN FETCH vnclr.tipoVinculo "
+				+ "LEFT JOIN cs.cifSrvcoPrpreFrmros prpreFrmros "
+				+ "LEFT JOIN prpreFrmros.tipoPrpreFrmro "
+				+ "LEFT JOIN prpreFrmros.tipoConteudo "
+				+ "LEFT JOIN cs.cifCoreografias coreografia "
+				+ "LEFT JOIN prpreFrmros.sistemaConteudos "
+				+ "LEFT JOIN prpreFrmros.canalConteudos "
+				+ "LEFT JOIN prpreFrmros.saldoRsrvaSclCndos "
+				+ "LEFT JOIN prpreFrmros.detalheDebitoCndos "
+				+ "LEFT JOIN prpreFrmros.fncneEspecialCndos "
+				+ "LEFT JOIN prpreFrmros.prpreFrmroSnlSaldos "
+				+ "LEFT JOIN prpreFrmros.tipoExtracaoCndos "
+				+ "LEFT JOIN prpreFrmros.classificacaoCndos "
+				+ "LEFT JOIN prpreFrmros.prioridadeConteudos "
+				+ "WHERE "
 				+ "cs.id = :cifservicoid "
-				+ "and vnclr.fimVigencia = null "
-				+ "and coreografia.fimVigencia = null "
-				+ "and prpreFrmros.fimVigencia = null "
+				+ "AND vnclr.fimVigencia = null "
+				+ "AND coreografia.fimVigencia = null "
+				+ "AND prpreFrmros.fimVigencia = null "
 				
 				, params).singleResult();
 	}
@@ -55,13 +55,13 @@ public class CifServicoRepositoryImpl implements PanacheRepository<CifServico>, 
 	@Override
 	public List<CifServico> listarCifsServicosPrincipais() {
 		return list(
-				"select "
+				"SELECT "
 				+ "new br.gov.caixa.sid02.dominio.parametro.modelo.CifServico("
 				+ "cs.id, cs.nuSubgrupo, cs.nuTipo, cs.nuSubtipo, cs.icServicoPrincipal, cs.noServico "
 				+ ") "
-				+ "from CifServico cs "
-				+ "where cs.icServicoPrincipal = 'S' "
-				+ "order by cs.id.nuSequencialCifServico");
+				+ "FROM CifServico cs "
+				+ "WHERE cs.icServicoPrincipal = 'S' "
+				+ "ORDER BY cs.id.nuSequencialCifServico");
 	}
 
 

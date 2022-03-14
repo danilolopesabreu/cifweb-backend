@@ -76,13 +76,19 @@ public interface CifServicoMapper {
 
 	DetalheDebitoCndoDto map(DetalheDebitoCndo value);
 
+	@Mapping(target = "nuFuncionalidadeEspecial", source = "id.nuFuncionalidadeEspecial")
 	FncneEspecialCndoDto map(FncneEspecialCndo value);
 
 	PrpreFrmroSnlSaldoDto map(PrpreFrmroSnlSaldo value);
 
+	@Mapping(target = "nuTipoExtracao", source = "id.nuTipoExtracao")
+	@Mapping(target = "coTipoExtracao", source = "tipoExtracao.coTipoExtracao")
+	@Mapping(target = "noTipoExtracao", source = "tipoExtracao.noTipoExtracao")
 	TipoExtracaoCndoDto map(TipoExtracaoCndo value);
 
+	@Mapping(target = "nuClassificacaoLncmo;", source = "id.nuClassificacaoLncmo;")
 	ClassificacaoCndoDto map(ClassificacaoCndo value);
 
+	@Mapping(target = "nuPrioridade", source = "id.nuPrioridade")
 	PrioridadeConteudoDto map(PrioridadeConteudo value);
 }
