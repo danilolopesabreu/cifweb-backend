@@ -15,7 +15,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "D02TB206_TIPO_CONTEUDO")
-public class TipoConteudo implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class TipoConteudo implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	private byte nuTipoConteudo;
 	private char coConteudo;

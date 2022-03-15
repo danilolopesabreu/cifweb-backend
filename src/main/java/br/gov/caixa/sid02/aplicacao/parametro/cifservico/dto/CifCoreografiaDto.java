@@ -1,35 +1,33 @@
 package br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto;
 
-import java.util.Date;
-
 public class CifCoreografiaDto {
 
-	private CifCoreografiaIdDto id;
-	private Date fimVigencia;
-	private String coUsuario;
+	private short nuFaixa;
+	private int nuCoreografia;
+	private int nuPacote;
 
-	public CifCoreografiaIdDto getId() {
-		return id;
+	public short getNuFaixa() {
+		return nuFaixa;
 	}
 
-	public void setId(CifCoreografiaIdDto id) {
-		this.id = id;
+	public void setNuFaixa(short nuFaixa) {
+		this.nuFaixa = nuFaixa;
 	}
 
-	public Date getFimVigencia() {
-		return fimVigencia;
+	public int getNuCoreografia() {
+		return nuCoreografia;
 	}
 
-	public void setFimVigencia(Date fimVigencia) {
-		this.fimVigencia = fimVigencia;
+	public void setNuCoreografia(int nuCoreografia) {
+		this.nuCoreografia = nuCoreografia;
 	}
 
-	public String getCoUsuario() {
-		return coUsuario;
+	public int getNuPacote() {
+		return nuPacote;
 	}
 
-	public void setCoUsuario(String coUsuario) {
-		this.coUsuario = coUsuario;
+	public void setNuPacote(int nuPacote) {
+		this.nuPacote = nuPacote;
 	}
 
 }

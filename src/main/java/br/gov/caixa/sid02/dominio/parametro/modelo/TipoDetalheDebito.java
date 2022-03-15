@@ -17,10 +17,12 @@ import br.gov.caixa.sid02.dominio.formulario.modelo.DetalheDebitoSlndo;
  */
 @Entity
 @Table(name = "D02TB211_TIPO_DETALHE_DEBITO")
-public class TipoDetalheDebito implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class TipoDetalheDebito implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	private short nuTipoDetalheDebito;
-	private String ETipoDetalheDebito;
+	private String deTipoDetalheDebito;
 	private Set<DetalheDebitoCndo> detalheDebitoCndos = new HashSet<DetalheDebitoCndo>(0);
 	private Set<DetalheDebitoSlndo> detalheDebitoSlndos = new HashSet<DetalheDebitoSlndo>(0);
 
@@ -34,7 +36,7 @@ public class TipoDetalheDebito implements java.io.Serializable {private static f
 	public TipoDetalheDebito(short nuTipoDetalheDebito, String ETipoDetalheDebito,
 			Set<DetalheDebitoCndo> detalheDebitoCndos, Set<DetalheDebitoSlndo> detalheDebitoSlndos) {
 		this.nuTipoDetalheDebito = nuTipoDetalheDebito;
-		this.ETipoDetalheDebito = ETipoDetalheDebito;
+		this.deTipoDetalheDebito = ETipoDetalheDebito;
 		this.detalheDebitoCndos = detalheDebitoCndos;
 		this.detalheDebitoSlndos = detalheDebitoSlndos;
 	}
@@ -51,12 +53,12 @@ public class TipoDetalheDebito implements java.io.Serializable {private static f
 	}
 
 	@Column(name = "DE_TIPO_DETALHE_DEBITO", length = 30)
-	public String getETipoDetalheDebito() {
-		return this.ETipoDetalheDebito;
+	public String getDeTipoDetalheDebito() {
+		return this.deTipoDetalheDebito;
 	}
 
-	public void setETipoDetalheDebito(String ETipoDetalheDebito) {
-		this.ETipoDetalheDebito = ETipoDetalheDebito;
+	public void setDeTipoDetalheDebito(String ETipoDetalheDebito) {
+		this.deTipoDetalheDebito = ETipoDetalheDebito;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoDetalheDebito")

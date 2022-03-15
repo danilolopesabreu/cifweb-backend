@@ -17,10 +17,12 @@ import br.gov.caixa.sid02.dominio.formulario.modelo.RsrvaSocialSlndo;
  */
 @Entity
 @Table(name = "D02TB209_SALDO_RESERVA_SOCIAL")
-public class SaldoReservaSocial implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class SaldoReservaSocial implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	private short nuTipoAtrzaSaldoRsrvaScl;
-	private String ETipoAtrzaSaldoRsrvaScl;
+	private String deTipoAtrzaSaldoRsrvaScl;
 	private Set<SaldoRsrvaSclCndo> saldoRsrvaSclCndos = new HashSet<SaldoRsrvaSclCndo>(0);
 	private Set<RsrvaSocialSlndo> rsrvaSocialSlndos = new HashSet<RsrvaSocialSlndo>(0);
 
@@ -34,7 +36,7 @@ public class SaldoReservaSocial implements java.io.Serializable {private static 
 	public SaldoReservaSocial(short nuTipoAtrzaSaldoRsrvaScl, String ETipoAtrzaSaldoRsrvaScl,
 			Set<SaldoRsrvaSclCndo> saldoRsrvaSclCndos, Set<RsrvaSocialSlndo> rsrvaSocialSlndos) {
 		this.nuTipoAtrzaSaldoRsrvaScl = nuTipoAtrzaSaldoRsrvaScl;
-		this.ETipoAtrzaSaldoRsrvaScl = ETipoAtrzaSaldoRsrvaScl;
+		this.deTipoAtrzaSaldoRsrvaScl = ETipoAtrzaSaldoRsrvaScl;
 		this.saldoRsrvaSclCndos = saldoRsrvaSclCndos;
 		this.rsrvaSocialSlndos = rsrvaSocialSlndos;
 	}
@@ -51,12 +53,12 @@ public class SaldoReservaSocial implements java.io.Serializable {private static 
 	}
 
 	@Column(name = "DE_TIPO_ATRZA_SALDO_RSRVA_SCL", length = 30)
-	public String getETipoAtrzaSaldoRsrvaScl() {
-		return this.ETipoAtrzaSaldoRsrvaScl;
+	public String getDeTipoAtrzaSaldoRsrvaScl() {
+		return this.deTipoAtrzaSaldoRsrvaScl;
 	}
 
-	public void setETipoAtrzaSaldoRsrvaScl(String ETipoAtrzaSaldoRsrvaScl) {
-		this.ETipoAtrzaSaldoRsrvaScl = ETipoAtrzaSaldoRsrvaScl;
+	public void setDeTipoAtrzaSaldoRsrvaScl(String ETipoAtrzaSaldoRsrvaScl) {
+		this.deTipoAtrzaSaldoRsrvaScl = ETipoAtrzaSaldoRsrvaScl;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "saldoReservaSocial")

@@ -20,7 +20,9 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB212_DETALHE_DEBITO_CNDO")
-public class DetalheDebitoCndo implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class DetalheDebitoCndo implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	private DetalheDebitoCndoId id;
 	private CifSrvcoPrpreFrmro cifSrvcoPrpreFrmro;

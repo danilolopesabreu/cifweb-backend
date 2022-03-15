@@ -4,33 +4,33 @@ import java.util.Date;
 
 public class CifComplementoDtoId {
 
-	private byte nuAcaoVinculador;
-	private byte nuModoVinculador;
-	private byte nuGrupoVinculador;
+	private short nuAcaoVinculador;
+	private short nuModoVinculador;
+	private short nuGrupoVinculador;
 	private int nuSqnclCifSrvcoVinculador;
 	private Date inicioVigencia;
 
-	public byte getNuAcaoVinculador() {
+	public short getNuAcaoVinculador() {
 		return nuAcaoVinculador;
 	}
 
-	public void setNuAcaoVinculador(byte nuAcaoVinculador) {
+	public void setNuAcaoVinculador(short nuAcaoVinculador) {
 		this.nuAcaoVinculador = nuAcaoVinculador;
 	}
 
-	public byte getNuModoVinculador() {
+	public short getNuModoVinculador() {
 		return nuModoVinculador;
 	}
 
-	public void setNuModoVinculador(byte nuModoVinculador) {
+	public void setNuModoVinculador(short nuModoVinculador) {
 		this.nuModoVinculador = nuModoVinculador;
 	}
 
-	public byte getNuGrupoVinculador() {
+	public short getNuGrupoVinculador() {
 		return nuGrupoVinculador;
 	}
 
-	public void setNuGrupoVinculador(byte nuGrupoVinculador) {
+	public void setNuGrupoVinculador(short nuGrupoVinculador) {
 		this.nuGrupoVinculador = nuGrupoVinculador;
 	}
 

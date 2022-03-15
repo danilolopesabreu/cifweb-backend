@@ -6,6 +6,10 @@ import java.util.Set;
 
 import javax.json.bind.annotation.JsonbTransient;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({ "noServico", "id", "nuSubgrupo", "nuTipo", "nuSubtipo", "icServicoPrincipal", 
+						"complementos", "cifCoreografias", "cifSrvcoPrpreFrmros", "slctoManutencaoCifs" })
 public class CifServicoDto {
 
 	private String noServico;
@@ -14,16 +18,11 @@ public class CifServicoDto {
 	private Short nuTipo;
 	private Short nuSubtipo;
 	private char icServicoPrincipal;
-
 	private Set<CifComplementoDto> complementos = new HashSet<CifComplementoDto>(0);
-
 	@JsonbTransient
 	private Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vncdo = new HashSet<CifComplementoDto>(0);
-
 	private Set<CifCoreografiaDto> cifCoreografias = new HashSet<CifCoreografiaDto>(0);
-
 	private Set<CifSrvcoPrpreFrmroDto> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmroDto>(0);
-
 	private Set<SlctoManutencaoCifDto> slctoManutencaoCifs = new HashSet<SlctoManutencaoCifDto>(0);
 
 	public CifServicoDto() {

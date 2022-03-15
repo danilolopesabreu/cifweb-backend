@@ -20,7 +20,9 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB216_CANAL_CONTEUDO")
-public class CanalConteudo implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class CanalConteudo implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	private CanalConteudoId id;
 	private CifSrvcoPrpreFrmro cifSrvcoPrpreFrmro;

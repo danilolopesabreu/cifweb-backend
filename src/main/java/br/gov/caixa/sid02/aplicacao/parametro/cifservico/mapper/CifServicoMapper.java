@@ -57,6 +57,9 @@ public interface CifServicoMapper {
 	@Mapping(target = "cifServicoVinculado", source = "cifServicoByFkD02tb201D02tb200Vncdo")
 	CifComplementoDto cifComplementoToCifComplementoDto(CifComplemento cifComplemento, @Context CycleAvoidingMappingContext context);
 
+	@Mapping(target = "nuFaixa", source = "id.nuFaixa")
+	@Mapping(target = "nuCoreografia", source = "id.nuCoreografia")
+	@Mapping(target = "nuPacote", source = "id.nuPacote")
 	CifCoreografiaDto map(CifCoreografia cifCoreografia);
 	
 	CifSrvcoPrpreFrmroDto map(CifSrvcoPrpreFrmro cifSrvcoPrpreFrmro);
@@ -67,13 +70,19 @@ public interface CifServicoMapper {
 
 	TipoConteudoDto map(TipoConteudo value);
 
-	@Mapping(target = "nuSegmento", source = "id.nuSegmentoS")
+	@Mapping(target = "nuSegmento", source = "id.nuSegmento")
 	SistemaConteudoDto map(SistemaConteudo value);
 
+	@Mapping(target = "nuCanalComercializacao", source = "id.nuCanalComercializacao")
 	CanalConteudoDto map(CanalConteudo value);
 
+	@Mapping(target = "nuAtrzaSldoRsrvaScl", source = "id.nuAtrzaSldoRsrvaScl")
+	@Mapping(target = "nuTipoAtrzaSaldoRsrvaScl", source = "saldoReservaSocial.nuTipoAtrzaSaldoRsrvaScl")
+	@Mapping(target = "deTipoAtrzaSaldoRsrvaScl", source = "saldoReservaSocial.deTipoAtrzaSaldoRsrvaScl")
 	SaldoRsrvaSclCndoDto map(SaldoRsrvaSclCndo value);
 
+	@Mapping(target = "nuTipoDetalheDebito", source = "tipoDetalheDebito.nuTipoDetalheDebito")
+	@Mapping(target = "deTipoDetalheDebito", source = "tipoDetalheDebito.deTipoDetalheDebito")
 	DetalheDebitoCndoDto map(DetalheDebitoCndo value);
 
 	@Mapping(target = "nuFuncionalidadeEspecial", source = "id.nuFuncionalidadeEspecial")
@@ -86,7 +95,7 @@ public interface CifServicoMapper {
 	@Mapping(target = "noTipoExtracao", source = "tipoExtracao.noTipoExtracao")
 	TipoExtracaoCndoDto map(TipoExtracaoCndo value);
 
-	@Mapping(target = "nuClassificacaoLncmo;", source = "id.nuClassificacaoLncmo;")
+	@Mapping(target = "nuClassificacaoLncmo", source = "id.nuClassificacaoLncmo")
 	ClassificacaoCndoDto map(ClassificacaoCndo value);
 
 	@Mapping(target = "nuPrioridade", source = "id.nuPrioridade")

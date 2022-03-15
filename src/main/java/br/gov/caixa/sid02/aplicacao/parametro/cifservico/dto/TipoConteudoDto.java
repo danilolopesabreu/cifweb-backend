@@ -2,15 +2,15 @@ package br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto;
 
 public class TipoConteudoDto {
 
-	private byte nuTipoConteudo;
+	private short nuTipoConteudo;
 	private char coConteudo;
 	private String noTipoConteudo;
 
-	public byte getNuTipoConteudo() {
+	public short getNuTipoConteudo() {
 		return nuTipoConteudo;
 	}
 
-	public void setNuTipoConteudo(byte nuTipoConteudo) {
+	public void setNuTipoConteudo(short nuTipoConteudo) {
 		this.nuTipoConteudo = nuTipoConteudo;
 	}
 
