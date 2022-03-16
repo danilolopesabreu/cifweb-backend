@@ -2,12 +2,15 @@ package br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto;
 
 import java.util.Date;
 
+import javax.json.bind.annotation.JsonbTransient;
+
 public class CifComplementoDtoId {
 
 	private short nuAcaoVinculador;
 	private short nuModoVinculador;
 	private short nuGrupoVinculador;
 	private int nuSqnclCifSrvcoVinculador;
+	@JsonbTransient
 	private Date inicioVigencia;
 
 	public short getNuAcaoVinculador() {

@@ -8,19 +8,12 @@ public class CifComplementoDto {
 
 	@JsonbTransient
 	private CifServicoDto cifServicoByFkD02tb201D02tb200Vnclr;
-	
 	private CifServicoDto cifServicoVinculado;
-	
-	@JsonbTransient
 	private CifComplementoDtoId id;
-	@JsonbTransient
 	private TipoVinculoDto tipoVinculo;
-	@JsonbTransient
 	private char icMandatorio;
-	
 	@JsonbTransient
 	private Date fimVigencia;
-	
 	@JsonbTransient
 	private String coUsuario;
 

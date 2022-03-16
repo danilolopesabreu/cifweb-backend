@@ -10,23 +10,15 @@ public class CifServicoDto {
 
 	private String noServico;
 	private CifServicoIdDto id;
-	@JsonbTransient
 	private Short nuSubgrupo;
-	@JsonbTransient
 	private Short nuTipo;
-	@JsonbTransient
 	private Short nuSubtipo;
-	@JsonbTransient
 	private char icServicoPrincipal;
-	
 	private Set<CifComplementoDto> complementos = new HashSet<CifComplementoDto>(0);
 	@JsonbTransient
 	private Set<CifComplementoDto> cifComplementosForFkD02tb201D02tb200Vncdo = new HashSet<CifComplementoDto>(0);
-	@JsonbTransient
 	private Set<CifCoreografiaDto> cifCoreografias = new HashSet<CifCoreografiaDto>(0);
-	@JsonbTransient
 	private Set<CifSrvcoPrpreFrmroDto> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmroDto>(0);
-	@JsonbTransient
 	private Set<SlctoManutencaoCifDto> slctoManutencaoCifs = new HashSet<SlctoManutencaoCifDto>(0);
 
 	public CifServicoDto() {
