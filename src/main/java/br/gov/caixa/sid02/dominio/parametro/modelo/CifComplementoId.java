@@ -1,7 +1,7 @@
 package br.gov.caixa.sid02.dominio.parametro.modelo;
 
-
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -11,7 +11,7 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 public class CifComplementoId implements java.io.Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	private byte nuAcaoVinculador;
@@ -31,7 +31,7 @@ public class CifComplementoId implements java.io.Serializable {
 		this.nuSqnclCifSrvcoVinculador = nuSqnclCifSrvcoVinculador;
 		this.inicioVigencia = inicioVigencia;
 	}
-	
+
 	public static CifComplementoId of(CifServicoId cifServicoId) {
 		CifComplementoId id = new CifComplementoId();
 		id.setNuAcaoVinculador(cifServicoId.getNuAcao());
@@ -86,33 +86,24 @@ public class CifComplementoId implements java.io.Serializable {
 		this.inicioVigencia = inicioVigencia;
 	}
 
-	public boolean equals(Object other) {
-		if ((this == other))
-			return true;
-		if ((other == null))
-			return false;
-		if (!(other instanceof CifComplementoId))
-			return false;
-		CifComplementoId castOther = (CifComplementoId) other;
-
-		return (this.getNuAcaoVinculador() == castOther.getNuAcaoVinculador())
-				&& (this.getNuModoVinculador() == castOther.getNuModoVinculador())
-				&& (this.getNuGrupoVinculador() == castOther.getNuGrupoVinculador())
-				&& (this.getNuSqnclCifSrvcoVinculador() == castOther.getNuSqnclCifSrvcoVinculador())
-				&& ((this.getInicioVigencia() == castOther.getInicioVigencia())
-						|| (this.getInicioVigencia() != null && castOther.getInicioVigencia() != null
-								&& this.getInicioVigencia().equals(castOther.getInicioVigencia())));
+	@Override
+	public int hashCode() {
+		return Objects.hash(inicioVigencia, nuAcaoVinculador, nuGrupoVinculador, nuModoVinculador,
+				nuSqnclCifSrvcoVinculador);
 	}
 
-	public int hashCode() {
-		int result = 17;
-
-		result = 37 * result + this.getNuAcaoVinculador();
-		result = 37 * result + this.getNuModoVinculador();
-		result = 37 * result + this.getNuGrupoVinculador();
-		result = 37 * result + this.getNuSqnclCifSrvcoVinculador();
-		result = 37 * result + (getInicioVigencia() == null ? 0 : this.getInicioVigencia().hashCode());
-		return result;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CifComplementoId other = (CifComplementoId) obj;
+		return Objects.equals(inicioVigencia, other.inicioVigencia) && nuAcaoVinculador == other.nuAcaoVinculador
+				&& nuGrupoVinculador == other.nuGrupoVinculador && nuModoVinculador == other.nuModoVinculador
+				&& nuSqnclCifSrvcoVinculador == other.nuSqnclCifSrvcoVinculador;
 	}
 
 }

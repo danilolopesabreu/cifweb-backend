@@ -1,7 +1,8 @@
 package br.gov.caixa.sid02.dominio.parametro.modelo;
 
-
 import java.util.Date;
+import java.util.Objects;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -20,7 +21,8 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB203_CIF_COREOGRAFIA")
-public class CifCoreografia implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class CifCoreografia implements java.io.Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private CifCoreografiaId id;
 	private CifServico cifServico;
@@ -93,6 +95,23 @@ public class CifCoreografia implements java.io.Serializable {private static fina
 
 	public void setCoUsuario(String coUsuario) {
 		this.coUsuario = coUsuario;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CifCoreografia other = (CifCoreografia) obj;
+		return Objects.equals(id, other.id);
 	}
 
 }

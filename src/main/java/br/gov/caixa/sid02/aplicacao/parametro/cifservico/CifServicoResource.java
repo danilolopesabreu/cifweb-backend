@@ -11,13 +11,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import br.gov.caixa.sid02.aplicacao.dto.mapper.CycleAvoidingMappingContext;
-import br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto.CifComplementoDto;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto.CifServicoDto;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto.CifServicoIdDto;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.mapper.CifComplementoMapper;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.mapper.CifServicoMapper;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.service.CifServicoService;
-import br.gov.caixa.sid02.dominio.parametro.modelo.CifComplemento;
 import br.gov.caixa.sid02.dominio.parametro.modelo.CifServico;
 
 @Path("/cif-servico")
@@ -43,22 +41,12 @@ public class CifServicoResource {
     }
 
 	@POST
-	@Path("detalhar")
-    public CifServicoDto consultarCifServico(CifServicoIdDto cifServicoIdDto) {
+	@Path("consulta-por-id")
+    public CifServicoDto consultarCifServicoPorId(final CifServicoIdDto cifServicoIdDto) {
 		final CifServico cifServicoConsulta = this.cifServicoMapper.toCifServico(new CifServicoDto(cifServicoIdDto));
 		final CifServico cifServico = this.cifServicoService.listarPorCifServicoId(cifServicoConsulta.getId());
 		final CifServicoDto cifServicoDtoResposta = this.cifServicoMapper.fromCifServico(cifServico, new CycleAvoidingMappingContext());
         return cifServicoDtoResposta;
     }
-	
-	@POST
-	@Path("complementos")
-    public List<CifComplementoDto> listarComplementosCifServico(CifServicoDto cifServicoDto) {
-		final CifServico cifServico = this.cifServicoMapper.toCifServico(cifServicoDto);
-		final List<CifComplemento> cifComplementos = this.cifServicoService.listarComplementosCifServico(cifServico.getId());
-		final List<CifComplementoDto> cifComplementosDtos = this.cifComplementoMapper.fromListCifComplemento(cifComplementos, new CycleAvoidingMappingContext());
-        return cifComplementosDtos;
-    }
-	
 	
 }

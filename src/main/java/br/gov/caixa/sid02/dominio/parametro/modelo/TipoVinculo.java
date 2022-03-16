@@ -2,6 +2,7 @@ package br.gov.caixa.sid02.dominio.parametro.modelo;
 
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -64,6 +65,23 @@ public class TipoVinculo implements java.io.Serializable {
 
 	public void setCifComplementos(Set<CifComplemento> cifComplementos) {
 		this.cifComplementos = cifComplementos;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(noTipoVinculo, nuTipoVinculo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TipoVinculo other = (TipoVinculo) obj;
+		return Objects.equals(noTipoVinculo, other.noTipoVinculo) && nuTipoVinculo == other.nuTipoVinculo;
 	}
 
 }

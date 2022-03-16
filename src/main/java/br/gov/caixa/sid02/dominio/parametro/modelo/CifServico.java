@@ -2,6 +2,7 @@ package br.gov.caixa.sid02.dominio.parametro.modelo;
 
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.AttributeOverride;
@@ -74,7 +75,6 @@ public class CifServico implements java.io.Serializable {
 	}
 
 	@EmbeddedId
-
 	@AttributeOverrides({
 			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, precision = 9, scale = 0)),
 			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_P15", nullable = false, precision = 2, scale = 0)),
@@ -178,6 +178,24 @@ public class CifServico implements java.io.Serializable {
 
 	public void setCifSrvcoPrpreFrmros(Set<CifSrvcoPrpreFrmro> cifSrvcoPrpreFrmros) {
 		this.cifSrvcoPrpreFrmros = cifSrvcoPrpreFrmros;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, nuSubgrupo, nuSubtipo, nuTipo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CifServico other = (CifServico) obj;
+		return Objects.equals(id, other.id) && Objects.equals(nuSubgrupo, other.nuSubgrupo)
+				&& Objects.equals(nuSubtipo, other.nuSubtipo) && Objects.equals(nuTipo, other.nuTipo);
 	}
 
 }

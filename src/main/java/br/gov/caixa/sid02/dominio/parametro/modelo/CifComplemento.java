@@ -1,7 +1,8 @@
 package br.gov.caixa.sid02.dominio.parametro.modelo;
 
-
 import java.util.Date;
+import java.util.Objects;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -21,7 +22,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "D02TB201_CIF_COMPLEMENTO")
 public class CifComplemento implements java.io.Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	private CifComplementoId id;
@@ -137,6 +138,23 @@ public class CifComplemento implements java.io.Serializable {
 
 	public void setCoUsuario(String coUsuario) {
 		this.coUsuario = coUsuario;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CifComplemento other = (CifComplemento) obj;
+		return Objects.equals(id, other.id);
 	}
 
 }

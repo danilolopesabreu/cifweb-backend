@@ -1,8 +1,8 @@
 package br.gov.caixa.sid02.dominio.parametro.modelo;
 
-
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -23,7 +23,8 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB202_CIF_SRVCO_PRPRE_FRMRO")
-public class CifSrvcoPrpreFrmro implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class CifSrvcoPrpreFrmro implements java.io.Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private CifSrvcoPrpreFrmroId id;
 	private CifServico cifServico;
@@ -262,6 +263,23 @@ public class CifSrvcoPrpreFrmro implements java.io.Serializable {private static 
 
 	public void setPrioridadeConteudos(Set<PrioridadeConteudo> prioridadeConteudos) {
 		this.prioridadeConteudos = prioridadeConteudos;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, inicioVigencia);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CifSrvcoPrpreFrmro other = (CifSrvcoPrpreFrmro) obj;
+		return Objects.equals(id, other.id) && Objects.equals(inicioVigencia, other.inicioVigencia);
 	}
 
 }

@@ -1,7 +1,8 @@
 package br.gov.caixa.sid02.dominio.parametro.modelo;
 
-
 import java.util.Date;
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -9,7 +10,8 @@ import javax.persistence.Embeddable;
  * CifCoreografiaId
  */
 @Embeddable
-public class CifCoreografiaId implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class CifCoreografiaId implements java.io.Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private byte nuAcao;
 	private byte nuModo;
@@ -107,38 +109,25 @@ public class CifCoreografiaId implements java.io.Serializable {private static fi
 		this.inicioVigencia = inicioVigencia;
 	}
 
-	public boolean equals(Object other) {
-		if ((this == other))
-			return true;
-		if ((other == null))
-			return false;
-		if (!(other instanceof CifCoreografiaId))
-			return false;
-		CifCoreografiaId castOther = (CifCoreografiaId) other;
-
-		return (this.getNuAcao() == castOther.getNuAcao()) && (this.getNuModo() == castOther.getNuModo())
-				&& (this.getNuGrupo() == castOther.getNuGrupo())
-				&& (this.getNuSequencialCifServico() == castOther.getNuSequencialCifServico())
-				&& (this.getNuFaixa() == castOther.getNuFaixa())
-				&& (this.getNuCoreografia() == castOther.getNuCoreografia())
-				&& (this.getNuPacote() == castOther.getNuPacote())
-				&& ((this.getInicioVigencia() == castOther.getInicioVigencia())
-						|| (this.getInicioVigencia() != null && castOther.getInicioVigencia() != null
-								&& this.getInicioVigencia().equals(castOther.getInicioVigencia())));
+	@Override
+	public int hashCode() {
+		return Objects.hash(inicioVigencia, nuAcao, nuCoreografia, nuFaixa, nuGrupo, nuModo, nuPacote,
+				nuSequencialCifServico);
 	}
 
-	public int hashCode() {
-		int result = 17;
-
-		result = 37 * result + this.getNuAcao();
-		result = 37 * result + this.getNuModo();
-		result = 37 * result + this.getNuGrupo();
-		result = 37 * result + this.getNuSequencialCifServico();
-		result = 37 * result + this.getNuFaixa();
-		result = 37 * result + this.getNuCoreografia();
-		result = 37 * result + this.getNuPacote();
-		result = 37 * result + (getInicioVigencia() == null ? 0 : this.getInicioVigencia().hashCode());
-		return result;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CifCoreografiaId other = (CifCoreografiaId) obj;
+		return Objects.equals(inicioVigencia, other.inicioVigencia) && nuAcao == other.nuAcao
+				&& nuCoreografia == other.nuCoreografia && nuFaixa == other.nuFaixa && nuGrupo == other.nuGrupo
+				&& nuModo == other.nuModo && nuPacote == other.nuPacote
+				&& nuSequencialCifServico == other.nuSequencialCifServico;
 	}
 
 }

@@ -13,9 +13,9 @@ public class CifComplementoDto {
 	
 	@JsonbTransient
 	private CifComplementoDtoId id;
-	
+	@JsonbTransient
 	private TipoVinculoDto tipoVinculo;
-	
+	@JsonbTransient
 	private char icMandatorio;
 	
 	@JsonbTransient

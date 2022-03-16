@@ -43,7 +43,7 @@ public class CifServicoIdDto {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(nuAcao, nuGrupo, nuModo, nuSequencialCifServico);
+		return Objects.hash(nuAcao, nuModo, nuGrupo, nuSequencialCifServico);
 	}
 
 	@Override
