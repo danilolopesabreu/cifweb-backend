@@ -13,7 +13,6 @@ import javax.ws.rs.core.MediaType;
 import br.gov.caixa.sid02.aplicacao.dto.mapper.CycleAvoidingMappingContext;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto.CifServicoDto;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.dto.CifServicoIdDto;
-import br.gov.caixa.sid02.aplicacao.parametro.cifservico.mapper.CifComplementoMapper;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.mapper.CifServicoMapper;
 import br.gov.caixa.sid02.aplicacao.parametro.cifservico.service.CifServicoService;
 import br.gov.caixa.sid02.dominio.parametro.modelo.CifServico;
@@ -28,9 +27,6 @@ public class CifServicoResource {
 	
 	@Inject
 	protected CifServicoMapper cifServicoMapper;
-	
-	@Inject
-	protected CifComplementoMapper cifComplementoMapper;
 	
 	@GET
 	@Path("principais")

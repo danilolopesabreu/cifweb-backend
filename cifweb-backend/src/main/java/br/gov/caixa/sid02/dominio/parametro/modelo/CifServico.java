@@ -165,4 +165,15 @@ public class CifServico implements java.io.Serializable { private static final l
 		this.cifSrvcoPrpreFrmros = cifSrvcoPrpreFrmros;
 	}
 
+	public CifServico(CifServicoId id, Short nuSubgrupo, Short nuTipo, Short nuSubtipo, String icServicoPrincipal,
+			String noServico) {
+		super();
+		this.id = id;
+		this.nuSubgrupo = nuSubgrupo;
+		this.nuTipo = nuTipo;
+		this.nuSubtipo = nuSubtipo;
+		this.icServicoPrincipal = icServicoPrincipal;
+		this.noServico = noServico;
+	}
+
 }
