@@ -43,7 +43,7 @@ import br.gov.caixa.sid02.dominio.parametro.modelo.TipoPrpreFrmro;
 @Mapper(componentModel = "cdi")
 public interface CifServicoMapper {
 	
-	@Mapping(target = "complementos", source = "cifComplementosForFkD02tb201D02tb200Vnclr")
+	@Mapping(target = "complementos", source = "cifComplementosForFkD02tb201D02tb2001")
 	CifServicoDto fromCifServico(CifServico cifServico, @Context CycleAvoidingMappingContext context);
 	 
 	CifServico toCifServico(CifServicoDto cifServicoDto);
@@ -54,7 +54,7 @@ public interface CifServicoMapper {
 	
 	List<CifComplementoDto> fromCifComplemento(List<CifComplemento> cifComplemento);
 	
-	@Mapping(target = "cifServicoVinculado", source = "cifServicoByFkD02tb201D02tb200Vncdo")
+	@Mapping(target = "cifServicoVinculado", source = "cifServicoByFkD02tb201D02tb2002")
 	CifComplementoDto cifComplementoToCifComplementoDto(CifComplemento cifComplemento, @Context CycleAvoidingMappingContext context);
 
 	@Mapping(target = "nuFaixa", source = "id.nuFaixa")

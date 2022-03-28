@@ -16,7 +16,7 @@ public class SistemaConteudoId implements java.io.Serializable { private static 
 	private short nuGrupo;
 	private int nuSequencialCifServico;
 	private int nuSqnclCifPrpreFrmro;
-	private int nuSegmentoS;
+	private int nuSegmento;
 	private Date inicioVigencia;
 
 	public SistemaConteudoId() {
@@ -29,7 +29,7 @@ public class SistemaConteudoId implements java.io.Serializable { private static 
 		this.nuGrupo = nuGrupo;
 		this.nuSequencialCifServico = nuSequencialCifServico;
 		this.nuSqnclCifPrpreFrmro = nuSqnclCifPrpreFrmro;
-		this.nuSegmentoS = nuSegmentoS;
+		this.nuSegmento = nuSegmentoS;
 		this.inicioVigencia = inicioVigencia;
 	}
 
@@ -79,12 +79,12 @@ public class SistemaConteudoId implements java.io.Serializable { private static 
 	}
 
 	@Column(name = "NU_SEGMENTO_S12", nullable = false, precision = 9, scale = 0)
-	public int getNuSegmentoS() {
-		return this.nuSegmentoS;
+	public int getNuSegmento() {
+		return this.nuSegmento;
 	}
 
-	public void setNuSegmentoS(int nuSegmentoS) {
-		this.nuSegmentoS = nuSegmentoS;
+	public void setNuSegmento(int nuSegmentoS) {
+		this.nuSegmento = nuSegmentoS;
 	}
 
 	@Column(name = "DT_INICIO_VIGENCIA", nullable = false, length = 7)
@@ -109,7 +109,7 @@ public class SistemaConteudoId implements java.io.Serializable { private static 
 				&& (this.getNuGrupo() == castOther.getNuGrupo())
 				&& (this.getNuSequencialCifServico() == castOther.getNuSequencialCifServico())
 				&& (this.getNuSqnclCifPrpreFrmro() == castOther.getNuSqnclCifPrpreFrmro())
-				&& (this.getNuSegmentoS() == castOther.getNuSegmentoS())
+				&& (this.getNuSegmento() == castOther.getNuSegmento())
 				&& ((this.getInicioVigencia() == castOther.getInicioVigencia())
 						|| (this.getInicioVigencia() != null && castOther.getInicioVigencia() != null
 								&& this.getInicioVigencia().equals(castOther.getInicioVigencia())));
@@ -123,7 +123,7 @@ public class SistemaConteudoId implements java.io.Serializable { private static 
 		result = 37 * result + this.getNuGrupo();
 		result = 37 * result + this.getNuSequencialCifServico();
 		result = 37 * result + this.getNuSqnclCifPrpreFrmro();
-		result = 37 * result + this.getNuSegmentoS();
+		result = 37 * result + this.getNuSegmento();
 		result = 37 * result + (getInicioVigencia() == null ? 0 : this.getInicioVigencia().hashCode());
 		return result;
 	}

@@ -16,7 +16,7 @@ public class CanalConteudoId implements java.io.Serializable { private static fi
 	private short nuGrupo;
 	private int nuSequencialCifServico;
 	private int nuSqnclCifPrpreFrmro;
-	private int nuCanalComercializacaoO;
+	private int nuCanalComercializacao;
 	private Date inicioVigencia;
 
 	public CanalConteudoId() {
@@ -29,7 +29,7 @@ public class CanalConteudoId implements java.io.Serializable { private static fi
 		this.nuGrupo = nuGrupo;
 		this.nuSequencialCifServico = nuSequencialCifServico;
 		this.nuSqnclCifPrpreFrmro = nuSqnclCifPrpreFrmro;
-		this.nuCanalComercializacaoO = nuCanalComercializacaoO;
+		this.nuCanalComercializacao = nuCanalComercializacaoO;
 		this.inicioVigencia = inicioVigencia;
 	}
 
@@ -79,12 +79,12 @@ public class CanalConteudoId implements java.io.Serializable { private static fi
 	}
 
 	@Column(name = "NU_CANAL_COMERCIALIZACAO_O15", nullable = false, precision = 9, scale = 0)
-	public int getNuCanalComercializacaoO() {
-		return this.nuCanalComercializacaoO;
+	public int getNuCanalComercializacao() {
+		return this.nuCanalComercializacao;
 	}
 
-	public void setNuCanalComercializacaoO(int nuCanalComercializacaoO) {
-		this.nuCanalComercializacaoO = nuCanalComercializacaoO;
+	public void setNuCanalComercializacao(int nuCanalComercializacaoO) {
+		this.nuCanalComercializacao = nuCanalComercializacaoO;
 	}
 
 	@Column(name = "DT_INICIO_VIGENCIA", nullable = false, length = 7)
@@ -109,7 +109,7 @@ public class CanalConteudoId implements java.io.Serializable { private static fi
 				&& (this.getNuGrupo() == castOther.getNuGrupo())
 				&& (this.getNuSequencialCifServico() == castOther.getNuSequencialCifServico())
 				&& (this.getNuSqnclCifPrpreFrmro() == castOther.getNuSqnclCifPrpreFrmro())
-				&& (this.getNuCanalComercializacaoO() == castOther.getNuCanalComercializacaoO())
+				&& (this.getNuCanalComercializacao() == castOther.getNuCanalComercializacao())
 				&& ((this.getInicioVigencia() == castOther.getInicioVigencia())
 						|| (this.getInicioVigencia() != null && castOther.getInicioVigencia() != null
 								&& this.getInicioVigencia().equals(castOther.getInicioVigencia())));
@@ -123,7 +123,7 @@ public class CanalConteudoId implements java.io.Serializable { private static fi
 		result = 37 * result + this.getNuGrupo();
 		result = 37 * result + this.getNuSequencialCifServico();
 		result = 37 * result + this.getNuSqnclCifPrpreFrmro();
-		result = 37 * result + this.getNuCanalComercializacaoO();
+		result = 37 * result + this.getNuCanalComercializacao();
 		result = 37 * result + (getInicioVigencia() == null ? 0 : this.getInicioVigencia().hashCode());
 		return result;
 	}
