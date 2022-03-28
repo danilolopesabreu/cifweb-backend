@@ -1,8 +1,7 @@
 package br.gov.caixa.sid02.dominio.parametro.modelo;
 
-import java.util.Date;
-import java.util.Objects;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -10,12 +9,11 @@ import javax.persistence.Embeddable;
  * CifCoreografiaId
  */
 @Embeddable
-public class CifCoreografiaId implements java.io.Serializable {
-	private static final long serialVersionUID = 1L;
+public class CifCoreografiaId implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
-	private byte nuAcao;
-	private byte nuModo;
-	private byte nuGrupo;
+	private short nuAcao;
+	private short nuModo;
+	private short nuGrupo;
 	private int nuSequencialCifServico;
 	private short nuFaixa;
 	private int nuCoreografia;
@@ -25,7 +23,7 @@ public class CifCoreografiaId implements java.io.Serializable {
 	public CifCoreografiaId() {
 	}
 
-	public CifCoreografiaId(byte nuAcao, byte nuModo, byte nuGrupo, int nuSequencialCifServico, short nuFaixa,
+	public CifCoreografiaId(short nuAcao, short nuModo, short nuGrupo, int nuSequencialCifServico, short nuFaixa,
 			int nuCoreografia, int nuPacote, Date inicioVigencia) {
 		this.nuAcao = nuAcao;
 		this.nuModo = nuModo;
@@ -37,30 +35,30 @@ public class CifCoreografiaId implements java.io.Serializable {
 		this.inicioVigencia = inicioVigencia;
 	}
 
-	@Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuAcao() {
+	@Column(name = "NU_ACAO_200", nullable = false, precision = 3, scale = 0)
+	public short getNuAcao() {
 		return this.nuAcao;
 	}
 
-	public void setNuAcao(byte nuAcao) {
+	public void setNuAcao(short nuAcao) {
 		this.nuAcao = nuAcao;
 	}
 
-	@Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuModo() {
+	@Column(name = "NU_MODO_200", nullable = false, precision = 3, scale = 0)
+	public short getNuModo() {
 		return this.nuModo;
 	}
 
-	public void setNuModo(byte nuModo) {
+	public void setNuModo(short nuModo) {
 		this.nuModo = nuModo;
 	}
 
-	@Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuGrupo() {
+	@Column(name = "NU_GRUPO_200", nullable = false, precision = 3, scale = 0)
+	public short getNuGrupo() {
 		return this.nuGrupo;
 	}
 
-	public void setNuGrupo(byte nuGrupo) {
+	public void setNuGrupo(short nuGrupo) {
 		this.nuGrupo = nuGrupo;
 	}
 
@@ -109,25 +107,38 @@ public class CifCoreografiaId implements java.io.Serializable {
 		this.inicioVigencia = inicioVigencia;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(inicioVigencia, nuAcao, nuCoreografia, nuFaixa, nuGrupo, nuModo, nuPacote,
-				nuSequencialCifServico);
+	public boolean equals(Object other) {
+		if ((this == other))
+			return true;
+		if ((other == null))
+			return false;
+		if (!(other instanceof CifCoreografiaId))
+			return false;
+		CifCoreografiaId castOther = (CifCoreografiaId) other;
+
+		return (this.getNuAcao() == castOther.getNuAcao()) && (this.getNuModo() == castOther.getNuModo())
+				&& (this.getNuGrupo() == castOther.getNuGrupo())
+				&& (this.getNuSequencialCifServico() == castOther.getNuSequencialCifServico())
+				&& (this.getNuFaixa() == castOther.getNuFaixa())
+				&& (this.getNuCoreografia() == castOther.getNuCoreografia())
+				&& (this.getNuPacote() == castOther.getNuPacote())
+				&& ((this.getInicioVigencia() == castOther.getInicioVigencia())
+						|| (this.getInicioVigencia() != null && castOther.getInicioVigencia() != null
+								&& this.getInicioVigencia().equals(castOther.getInicioVigencia())));
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CifCoreografiaId other = (CifCoreografiaId) obj;
-		return Objects.equals(inicioVigencia, other.inicioVigencia) && nuAcao == other.nuAcao
-				&& nuCoreografia == other.nuCoreografia && nuFaixa == other.nuFaixa && nuGrupo == other.nuGrupo
-				&& nuModo == other.nuModo && nuPacote == other.nuPacote
-				&& nuSequencialCifServico == other.nuSequencialCifServico;
+	public int hashCode() {
+		int result = 17;
+
+		result = 37 * result + this.getNuAcao();
+		result = 37 * result + this.getNuModo();
+		result = 37 * result + this.getNuGrupo();
+		result = 37 * result + this.getNuSequencialCifServico();
+		result = 37 * result + this.getNuFaixa();
+		result = 37 * result + this.getNuCoreografia();
+		result = 37 * result + this.getNuPacote();
+		result = 37 * result + (getInicioVigencia() == null ? 0 : this.getInicioVigencia().hashCode());
+		return result;
 	}
 
 }

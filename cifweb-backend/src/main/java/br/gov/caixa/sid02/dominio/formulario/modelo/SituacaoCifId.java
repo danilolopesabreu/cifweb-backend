@@ -9,11 +9,11 @@ import javax.persistence.Embeddable;
  * SituacaoCifId
  */
 @Embeddable
-public class SituacaoCifId implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class SituacaoCifId implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
-	private byte nuAcao;
-	private byte nuModo;
-	private byte nuGrupo;
+	private short nuAcao;
+	private short nuModo;
+	private short nuGrupo;
 	private int nuSequencialCifServico;
 	private int nuSqnclSlctoMntnoCif;
 	private Date inicioVigencia;
@@ -21,8 +21,8 @@ public class SituacaoCifId implements java.io.Serializable {private static final
 	public SituacaoCifId() {
 	}
 
-	public SituacaoCifId(byte nuAcao, byte nuModo, byte nuGrupo, int nuSequencialCifServico, int nuSqnclSlctoMntnoCif,
-			Date inicioVigencia) {
+	public SituacaoCifId(short nuAcao, short nuModo, short nuGrupo, int nuSequencialCifServico,
+			int nuSqnclSlctoMntnoCif, Date inicioVigencia) {
 		this.nuAcao = nuAcao;
 		this.nuModo = nuModo;
 		this.nuGrupo = nuGrupo;
@@ -31,34 +31,34 @@ public class SituacaoCifId implements java.io.Serializable {private static final
 		this.inicioVigencia = inicioVigencia;
 	}
 
-	@Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuAcao() {
+	@Column(name = "NU_ACAO_250", nullable = false, precision = 3, scale = 0)
+	public short getNuAcao() {
 		return this.nuAcao;
 	}
 
-	public void setNuAcao(byte nuAcao) {
+	public void setNuAcao(short nuAcao) {
 		this.nuAcao = nuAcao;
 	}
 
-	@Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuModo() {
+	@Column(name = "NU_MODO_250", nullable = false, precision = 3, scale = 0)
+	public short getNuModo() {
 		return this.nuModo;
 	}
 
-	public void setNuModo(byte nuModo) {
+	public void setNuModo(short nuModo) {
 		this.nuModo = nuModo;
 	}
 
-	@Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuGrupo() {
+	@Column(name = "NU_GRUPO_250", nullable = false, precision = 3, scale = 0)
+	public short getNuGrupo() {
 		return this.nuGrupo;
 	}
 
-	public void setNuGrupo(byte nuGrupo) {
+	public void setNuGrupo(short nuGrupo) {
 		this.nuGrupo = nuGrupo;
 	}
 
-	@Column(name = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, precision = 9, scale = 0)
+	@Column(name = "NU_SEQUENCIAL_CIF_SERVICO_250", nullable = false, precision = 9, scale = 0)
 	public int getNuSequencialCifServico() {
 		return this.nuSequencialCifServico;
 	}

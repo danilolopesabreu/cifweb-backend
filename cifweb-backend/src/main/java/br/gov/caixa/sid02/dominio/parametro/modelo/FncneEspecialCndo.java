@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB214_FNCNE_ESPECIAL_CNDO")
-public class FncneEspecialCndo implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class FncneEspecialCndo implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private FncneEspecialCndoId id;
 	private CifSrvcoPrpreFrmro cifSrvcoPrpreFrmro;
@@ -47,13 +47,13 @@ public class FncneEspecialCndo implements java.io.Serializable {private static f
 	@EmbeddedId
 
 	@AttributeOverrides({
-			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)),
+			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_202", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_202", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_202", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO_202", nullable = false, precision = 9, scale = 0)),
 			@AttributeOverride(name = "nuSqnclCifPrpreFrmro", column = @Column(name = "NU_SQNCL_CIF_PRPRE_FRMRO_202", nullable = false, precision = 9, scale = 0)),
-			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, precision = 9, scale = 0)),
-			@AttributeOverride(name = "inicioVigencia", column = @Column(name = "DT_INICIO_VIGENCIA", nullable = false, length = 7)),
-			@AttributeOverride(name = "nuFuncionalidadeEspecial", column = @Column(name = "NU_FUNCIONALIDADE_ESPECIAL_P21", nullable = false, precision = 9, scale = 0)) })
+			@AttributeOverride(name = "nuFuncionalidadeEspecial", column = @Column(name = "NU_FUNCIONALIDADE_ESPECIAL_P21", nullable = false, precision = 9, scale = 0)),
+			@AttributeOverride(name = "inicioVigencia", column = @Column(name = "DT_INICIO_VIGENCIA", nullable = false, length = 7)) })
 	public FncneEspecialCndoId getId() {
 		return this.id;
 	}
@@ -64,10 +64,10 @@ public class FncneEspecialCndo implements java.io.Serializable {private static f
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_ACAO_200", referencedColumnName = "NU_ACAO_200", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_MODO_200", referencedColumnName = "NU_MODO_200", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_GRUPO_200", referencedColumnName = "NU_GRUPO_200", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_ACAO_202", referencedColumnName = "NU_ACAO_200", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_MODO_202", referencedColumnName = "NU_MODO_200", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_GRUPO_202", referencedColumnName = "NU_GRUPO_200", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_202", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, insertable = false, updatable = false),
 			@JoinColumn(name = "NU_SQNCL_CIF_PRPRE_FRMRO_202", referencedColumnName = "NU_SQNCL_CIF_SRVCO_PRPRE_FRMRO", nullable = false, insertable = false, updatable = false) })
 	public CifSrvcoPrpreFrmro getCifSrvcoPrpreFrmro() {
 		return this.cifSrvcoPrpreFrmro;

@@ -2,7 +2,6 @@ package br.gov.caixa.sid02.dominio.parametro.modelo;
 
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.AttributeOverride;
@@ -21,65 +20,53 @@ import br.gov.caixa.sid02.dominio.formulario.modelo.SlctoManutencaoCif;
  */
 @Entity
 @Table(name = "D02TB200_CIF_SERVICO")
-public class CifServico implements java.io.Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class CifServico implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private CifServicoId id;
 	private Short nuSubgrupo;
 	private Short nuTipo;
 	private Short nuSubtipo;
-	private char icServicoPrincipal;
+	private String icServicoPrincipal;
 	private String noServico;
-	private Set<CifComplemento> cifComplementosForFkD02tb201D02tb200Vnclr = new HashSet<CifComplemento>(0);
-	private Set<CifComplemento> cifComplementosForFkD02tb201D02tb200Vncdo = new HashSet<CifComplemento>(0);
 	private Set<CifCoreografia> cifCoreografias = new HashSet<CifCoreografia>(0);
-	private Set<CifSrvcoPrpreFrmro> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmro>(0);
+	private Set<CifComplemento> cifComplementosForFkD02tb201D02tb2002 = new HashSet<CifComplemento>(0);
 	private Set<SlctoManutencaoCif> slctoManutencaoCifs = new HashSet<SlctoManutencaoCif>(0);
+	private Set<CifComplemento> cifComplementosForFkD02tb201D02tb2001 = new HashSet<CifComplemento>(0);
+	private Set<CifSrvcoPrpreFrmro> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmro>(0);
 
 	public CifServico() {
 	}
 
-	public CifServico(CifServicoId id, char icServicoPrincipal, String noServico) {
+	public CifServico(CifServicoId id, String icServicoPrincipal, String noServico) {
 		this.id = id;
-		this.icServicoPrincipal = icServicoPrincipal;
-		this.noServico = noServico;
-	}
-	
-	public CifServico(CifServicoId id, Short nuSubgrupo, Short nuTipo, Short nuSubtipo, char icServicoPrincipal,
-			String noServico) {
-		super();
-		this.id = id;
-		this.nuSubgrupo = nuSubgrupo;
-		this.nuTipo = nuTipo;
-		this.nuSubtipo = nuSubtipo;
 		this.icServicoPrincipal = icServicoPrincipal;
 		this.noServico = noServico;
 	}
 
-	public CifServico(CifServicoId id, Short nuSubgrupo, Short nuTipo, Short nuSubtipo, char icServicoPrincipal,
-			String noServico, Set<CifComplemento> cifComplementosForFkD02tb201D02tb200Vnclr,
-			Set<CifCoreografia> cifCoreografias, Set<CifComplemento> cifComplementosForFkD02tb201D02tb200Vncdo,
-			Set<SlctoManutencaoCif> slctoManutencaoCifs, Set<CifSrvcoPrpreFrmro> cifSrvcoPrpreFrmros) {
+	public CifServico(CifServicoId id, Short nuSubgrupo, Short nuTipo, Short nuSubtipo, String icServicoPrincipal,
+			String noServico, Set<CifCoreografia> cifCoreografias,
+			Set<CifComplemento> cifComplementosForFkD02tb201D02tb2002, Set<SlctoManutencaoCif> slctoManutencaoCifs,
+			Set<CifComplemento> cifComplementosForFkD02tb201D02tb2001, Set<CifSrvcoPrpreFrmro> cifSrvcoPrpreFrmros) {
 		this.id = id;
 		this.nuSubgrupo = nuSubgrupo;
 		this.nuTipo = nuTipo;
 		this.nuSubtipo = nuSubtipo;
 		this.icServicoPrincipal = icServicoPrincipal;
 		this.noServico = noServico;
-		this.cifComplementosForFkD02tb201D02tb200Vnclr = cifComplementosForFkD02tb201D02tb200Vnclr;
 		this.cifCoreografias = cifCoreografias;
-		this.cifComplementosForFkD02tb201D02tb200Vncdo = cifComplementosForFkD02tb201D02tb200Vncdo;
+		this.cifComplementosForFkD02tb201D02tb2002 = cifComplementosForFkD02tb201D02tb2002;
 		this.slctoManutencaoCifs = slctoManutencaoCifs;
+		this.cifComplementosForFkD02tb201D02tb2001 = cifComplementosForFkD02tb201D02tb2001;
 		this.cifSrvcoPrpreFrmros = cifSrvcoPrpreFrmros;
 	}
 
 	@EmbeddedId
+
 	@AttributeOverrides({
-			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, precision = 9, scale = 0)),
-			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_P15", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_P15", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_P15", nullable = false, precision = 2, scale = 0)) })
+			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_P15", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_P15", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_P15", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, precision = 9, scale = 0)) })
 	public CifServicoId getId() {
 		return this.id;
 	}
@@ -97,7 +84,7 @@ public class CifServico implements java.io.Serializable {
 		this.nuSubgrupo = nuSubgrupo;
 	}
 
-	@Column(name = "NU_TIPO_P15", precision = 4, scale = 0)
+	@Column(name = "NU_TIPO_P15", precision = 3, scale = 0)
 	public Short getNuTipo() {
 		return this.nuTipo;
 	}
@@ -106,7 +93,7 @@ public class CifServico implements java.io.Serializable {
 		this.nuTipo = nuTipo;
 	}
 
-	@Column(name = "NU_SUBTIPO_P15", precision = 4, scale = 0)
+	@Column(name = "NU_SUBTIPO_P15", precision = 3, scale = 0)
 	public Short getNuSubtipo() {
 		return this.nuSubtipo;
 	}
@@ -116,11 +103,11 @@ public class CifServico implements java.io.Serializable {
 	}
 
 	@Column(name = "IC_SERVICO_PRINCIPAL", nullable = false, length = 1)
-	public char getIcServicoPrincipal() {
+	public String getIcServicoPrincipal() {
 		return this.icServicoPrincipal;
 	}
 
-	public void setIcServicoPrincipal(char icServicoPrincipal) {
+	public void setIcServicoPrincipal(String icServicoPrincipal) {
 		this.icServicoPrincipal = icServicoPrincipal;
 	}
 
@@ -133,17 +120,7 @@ public class CifServico implements java.io.Serializable {
 		this.noServico = noServico;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServicoByFkD02tb201D02tb200Vnclr", orphanRemoval = true)
-	public Set<CifComplemento> getCifComplementosForFkD02tb201D02tb200Vnclr() {
-		return this.cifComplementosForFkD02tb201D02tb200Vnclr;
-	}
-
-	public void setCifComplementosForFkD02tb201D02tb200Vnclr(
-			Set<CifComplemento> cifComplementosForFkD02tb201D02tb200Vnclr) {
-		this.cifComplementosForFkD02tb201D02tb200Vnclr = cifComplementosForFkD02tb201D02tb200Vnclr;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico", orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico")
 	public Set<CifCoreografia> getCifCoreografias() {
 		return this.cifCoreografias;
 	}
@@ -152,17 +129,16 @@ public class CifServico implements java.io.Serializable {
 		this.cifCoreografias = cifCoreografias;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServicoByFkD02tb201D02tb200Vncdo", orphanRemoval = true)
-	public Set<CifComplemento> getCifComplementosForFkD02tb201D02tb200Vncdo() {
-		return this.cifComplementosForFkD02tb201D02tb200Vncdo;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServicoByFkD02tb201D02tb2002")
+	public Set<CifComplemento> getCifComplementosForFkD02tb201D02tb2002() {
+		return this.cifComplementosForFkD02tb201D02tb2002;
 	}
 
-	public void setCifComplementosForFkD02tb201D02tb200Vncdo(
-			Set<CifComplemento> cifComplementosForFkD02tb201D02tb200Vncdo) {
-		this.cifComplementosForFkD02tb201D02tb200Vncdo = cifComplementosForFkD02tb201D02tb200Vncdo;
+	public void setCifComplementosForFkD02tb201D02tb2002(Set<CifComplemento> cifComplementosForFkD02tb201D02tb2002) {
+		this.cifComplementosForFkD02tb201D02tb2002 = cifComplementosForFkD02tb201D02tb2002;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico", orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico")
 	public Set<SlctoManutencaoCif> getSlctoManutencaoCifs() {
 		return this.slctoManutencaoCifs;
 	}
@@ -171,31 +147,22 @@ public class CifServico implements java.io.Serializable {
 		this.slctoManutencaoCifs = slctoManutencaoCifs;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico", orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServicoByFkD02tb201D02tb2001")
+	public Set<CifComplemento> getCifComplementosForFkD02tb201D02tb2001() {
+		return this.cifComplementosForFkD02tb201D02tb2001;
+	}
+
+	public void setCifComplementosForFkD02tb201D02tb2001(Set<CifComplemento> cifComplementosForFkD02tb201D02tb2001) {
+		this.cifComplementosForFkD02tb201D02tb2001 = cifComplementosForFkD02tb201D02tb2001;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cifServico")
 	public Set<CifSrvcoPrpreFrmro> getCifSrvcoPrpreFrmros() {
 		return this.cifSrvcoPrpreFrmros;
 	}
 
 	public void setCifSrvcoPrpreFrmros(Set<CifSrvcoPrpreFrmro> cifSrvcoPrpreFrmros) {
 		this.cifSrvcoPrpreFrmros = cifSrvcoPrpreFrmros;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, nuSubgrupo, nuSubtipo, nuTipo);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CifServico other = (CifServico) obj;
-		return Objects.equals(id, other.id) && Objects.equals(nuSubgrupo, other.nuSubgrupo)
-				&& Objects.equals(nuSubtipo, other.nuSubtipo) && Objects.equals(nuTipo, other.nuTipo);
 	}
 
 }

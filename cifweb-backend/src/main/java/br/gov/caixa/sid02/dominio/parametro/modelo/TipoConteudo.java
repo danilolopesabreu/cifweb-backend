@@ -15,25 +15,23 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "D02TB206_TIPO_CONTEUDO")
-public class TipoConteudo implements java.io.Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class TipoConteudo implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
-	private byte nuTipoConteudo;
-	private char coConteudo;
+	private short nuTipoConteudo;
+	private String coConteudo;
 	private String noTipoConteudo;
 	private Set<CifSrvcoPrpreFrmro> cifSrvcoPrpreFrmros = new HashSet<CifSrvcoPrpreFrmro>(0);
 
 	public TipoConteudo() {
 	}
 
-	public TipoConteudo(byte nuTipoConteudo, char coConteudo, String noTipoConteudo) {
+	public TipoConteudo(short nuTipoConteudo, String coConteudo, String noTipoConteudo) {
 		this.nuTipoConteudo = nuTipoConteudo;
 		this.coConteudo = coConteudo;
 		this.noTipoConteudo = noTipoConteudo;
 	}
 
-	public TipoConteudo(byte nuTipoConteudo, char coConteudo, String noTipoConteudo,
+	public TipoConteudo(short nuTipoConteudo, String coConteudo, String noTipoConteudo,
 			Set<CifSrvcoPrpreFrmro> cifSrvcoPrpreFrmros) {
 		this.nuTipoConteudo = nuTipoConteudo;
 		this.coConteudo = coConteudo;
@@ -43,21 +41,21 @@ public class TipoConteudo implements java.io.Serializable {
 
 	@Id
 
-	@Column(name = "NU_TIPO_CONTEUDO", unique = true, nullable = false, precision = 2, scale = 0)
-	public byte getNuTipoConteudo() {
+	@Column(name = "NU_TIPO_CONTEUDO", unique = true, nullable = false, precision = 3, scale = 0)
+	public short getNuTipoConteudo() {
 		return this.nuTipoConteudo;
 	}
 
-	public void setNuTipoConteudo(byte nuTipoConteudo) {
+	public void setNuTipoConteudo(short nuTipoConteudo) {
 		this.nuTipoConteudo = nuTipoConteudo;
 	}
 
 	@Column(name = "CO_CONTEUDO", nullable = false, length = 1)
-	public char getCoConteudo() {
+	public String getCoConteudo() {
 		return this.coConteudo;
 	}
 
-	public void setCoConteudo(char coConteudo) {
+	public void setCoConteudo(String coConteudo) {
 		this.coConteudo = coConteudo;
 	}
 

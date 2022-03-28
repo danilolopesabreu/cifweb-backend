@@ -4,6 +4,7 @@ package br.gov.caixa.sid02.dominio.formulario.modelo;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -25,7 +26,7 @@ import br.gov.caixa.sid02.dominio.parametro.modelo.CifServico;
  */
 @Entity
 @Table(name = "D02TB250_SLCTO_MANUTENCAO_CIF")
-public class SlctoManutencaoCif implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class SlctoManutencaoCif implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private SlctoManutencaoCifId id;
 	private CifServico cifServico;
@@ -100,11 +101,11 @@ public class SlctoManutencaoCif implements java.io.Serializable {private static 
 	@EmbeddedId
 
 	@AttributeOverrides({
-			@AttributeOverride(name = "nuSqnclSlctoMntnoCif", column = @Column(name = "NU_SQNCL_SLCTO_MNTNO_CIF_250", nullable = false, precision = 9, scale = 0)),
+			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_200", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_200", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_200", nullable = false, precision = 3, scale = 0)),
 			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, precision = 9, scale = 0)),
-			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)) })
+			@AttributeOverride(name = "nuSqnclSlctoMntnoCif", column = @Column(name = "NU_SQNCL_SLCTO_MNTNO_CIF", nullable = false, precision = 9, scale = 0)) })
 	public SlctoManutencaoCifId getId() {
 		return this.id;
 	}
@@ -115,10 +116,10 @@ public class SlctoManutencaoCif implements java.io.Serializable {private static 
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, insertable = false, updatable = false),
 			@JoinColumn(name = "NU_ACAO_200", referencedColumnName = "NU_ACAO_P15", nullable = false, insertable = false, updatable = false),
 			@JoinColumn(name = "NU_MODO_200", referencedColumnName = "NU_MODO_P15", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_GRUPO_200", referencedColumnName = "NU_GRUPO_P15", nullable = false, insertable = false, updatable = false) })
+			@JoinColumn(name = "NU_GRUPO_200", referencedColumnName = "NU_GRUPO_P15", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, insertable = false, updatable = false) })
 	public CifServico getCifServico() {
 		return this.cifServico;
 	}

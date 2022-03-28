@@ -1,8 +1,8 @@
 package br.gov.caixa.sid02.dominio.parametro.modelo;
 
+
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -23,15 +23,14 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB202_CIF_SRVCO_PRPRE_FRMRO")
-public class CifSrvcoPrpreFrmro implements java.io.Serializable {
-	private static final long serialVersionUID = 1L;
+public class CifSrvcoPrpreFrmro implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private CifSrvcoPrpreFrmroId id;
 	private CifServico cifServico;
 	private TipoPrpreFrmro tipoPrpreFrmro;
 	private TipoConteudo tipoConteudo;
-	private char icObrigatorio;
-	private char icHabilitado;
+	private String icObrigatorio;
+	private String icHabilitado;
 	private Date inicioVigencia;
 	private Date fimVigencia;
 	private String coUsuario;
@@ -49,7 +48,8 @@ public class CifSrvcoPrpreFrmro implements java.io.Serializable {
 	}
 
 	public CifSrvcoPrpreFrmro(CifSrvcoPrpreFrmroId id, CifServico cifServico, TipoPrpreFrmro tipoPrpreFrmro,
-			TipoConteudo tipoConteudo, char icObrigatorio, char icHabilitado, Date inicioVigencia, String coUsuario) {
+			TipoConteudo tipoConteudo, String icObrigatorio, String icHabilitado, Date inicioVigencia,
+			String coUsuario) {
 		this.id = id;
 		this.cifServico = cifServico;
 		this.tipoPrpreFrmro = tipoPrpreFrmro;
@@ -61,7 +61,7 @@ public class CifSrvcoPrpreFrmro implements java.io.Serializable {
 	}
 
 	public CifSrvcoPrpreFrmro(CifSrvcoPrpreFrmroId id, CifServico cifServico, TipoPrpreFrmro tipoPrpreFrmro,
-			TipoConteudo tipoConteudo, char icObrigatorio, char icHabilitado, Date inicioVigencia, Date fimVigencia,
+			TipoConteudo tipoConteudo, String icObrigatorio, String icHabilitado, Date inicioVigencia, Date fimVigencia,
 			String coUsuario, Set<SistemaConteudo> sistemaConteudos, Set<CanalConteudo> canalConteudos,
 			Set<SaldoRsrvaSclCndo> saldoRsrvaSclCndos, Set<DetalheDebitoCndo> detalheDebitoCndos,
 			Set<FncneEspecialCndo> fncneEspecialCndos, Set<PrpreFrmroSnlSaldo> prpreFrmroSnlSaldos,
@@ -90,10 +90,10 @@ public class CifSrvcoPrpreFrmro implements java.io.Serializable {
 	@EmbeddedId
 
 	@AttributeOverrides({
+			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_200", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_200", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_200", nullable = false, precision = 3, scale = 0)),
 			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, precision = 9, scale = 0)),
-			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)),
 			@AttributeOverride(name = "nuSqnclCifSrvcoPrpreFrmro", column = @Column(name = "NU_SQNCL_CIF_SRVCO_PRPRE_FRMRO", nullable = false, precision = 9, scale = 0)) })
 	public CifSrvcoPrpreFrmroId getId() {
 		return this.id;
@@ -105,10 +105,10 @@ public class CifSrvcoPrpreFrmro implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, insertable = false, updatable = false),
 			@JoinColumn(name = "NU_ACAO_200", referencedColumnName = "NU_ACAO_P15", nullable = false, insertable = false, updatable = false),
 			@JoinColumn(name = "NU_MODO_200", referencedColumnName = "NU_MODO_P15", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_GRUPO_200", referencedColumnName = "NU_GRUPO_P15", nullable = false, insertable = false, updatable = false) })
+			@JoinColumn(name = "NU_GRUPO_200", referencedColumnName = "NU_GRUPO_P15", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, insertable = false, updatable = false) })
 	public CifServico getCifServico() {
 		return this.cifServico;
 	}
@@ -118,7 +118,7 @@ public class CifSrvcoPrpreFrmro implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "NU_TIPO_PROPRIEDADE_FORMULARIO", nullable = false)
+	@JoinColumn(name = "NU_TIPO_PRPRE_FORMULARIO_205", nullable = false)
 	public TipoPrpreFrmro getTipoPrpreFrmro() {
 		return this.tipoPrpreFrmro;
 	}
@@ -138,20 +138,20 @@ public class CifSrvcoPrpreFrmro implements java.io.Serializable {
 	}
 
 	@Column(name = "IC_OBRIGATORIO", nullable = false, length = 1)
-	public char getIcObrigatorio() {
+	public String getIcObrigatorio() {
 		return this.icObrigatorio;
 	}
 
-	public void setIcObrigatorio(char icObrigatorio) {
+	public void setIcObrigatorio(String icObrigatorio) {
 		this.icObrigatorio = icObrigatorio;
 	}
 
 	@Column(name = "IC_HABILITADO", nullable = false, length = 1)
-	public char getIcHabilitado() {
+	public String getIcHabilitado() {
 		return this.icHabilitado;
 	}
 
-	public void setIcHabilitado(char icHabilitado) {
+	public void setIcHabilitado(String icHabilitado) {
 		this.icHabilitado = icHabilitado;
 	}
 
@@ -263,23 +263,6 @@ public class CifSrvcoPrpreFrmro implements java.io.Serializable {
 
 	public void setPrioridadeConteudos(Set<PrioridadeConteudo> prioridadeConteudos) {
 		this.prioridadeConteudos = prioridadeConteudos;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, inicioVigencia);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CifSrvcoPrpreFrmro other = (CifSrvcoPrpreFrmro) obj;
-		return Objects.equals(id, other.id) && Objects.equals(inicioVigencia, other.inicioVigencia);
 	}
 
 }

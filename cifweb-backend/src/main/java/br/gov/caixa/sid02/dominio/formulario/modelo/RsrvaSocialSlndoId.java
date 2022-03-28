@@ -9,55 +9,64 @@ import javax.persistence.Embeddable;
  * RsrvaSocialSlndoId
  */
 @Embeddable
-public class RsrvaSocialSlndoId implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class RsrvaSocialSlndoId implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
-	private byte nuAcao;
-	private byte nuModo;
-	private byte nuGrupo;
-	private int nuSqnclSlctoMntnoCif;
+	private short nuAcao;
+	private short nuModo;
+	private short nuGrupo;
 	private int nuSequencialCifServico;
+	private int nuSqnclSlctoMntnoCif;
 	private short nuAtrzaSldoRsrvaScl;
 	private Date inicioVigencia;
 
 	public RsrvaSocialSlndoId() {
 	}
 
-	public RsrvaSocialSlndoId(byte nuAcao, byte nuModo, byte nuGrupo, int nuSqnclSlctoMntnoCif,
-			int nuSequencialCifServico, short nuAtrzaSldoRsrvaScl, Date inicioVigencia) {
+	public RsrvaSocialSlndoId(short nuAcao, short nuModo, short nuGrupo, int nuSequencialCifServico,
+			int nuSqnclSlctoMntnoCif, short nuAtrzaSldoRsrvaScl, Date inicioVigencia) {
 		this.nuAcao = nuAcao;
 		this.nuModo = nuModo;
 		this.nuGrupo = nuGrupo;
-		this.nuSqnclSlctoMntnoCif = nuSqnclSlctoMntnoCif;
 		this.nuSequencialCifServico = nuSequencialCifServico;
+		this.nuSqnclSlctoMntnoCif = nuSqnclSlctoMntnoCif;
 		this.nuAtrzaSldoRsrvaScl = nuAtrzaSldoRsrvaScl;
 		this.inicioVigencia = inicioVigencia;
 	}
 
-	@Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuAcao() {
+	@Column(name = "NU_ACAO_250", nullable = false, precision = 3, scale = 0)
+	public short getNuAcao() {
 		return this.nuAcao;
 	}
 
-	public void setNuAcao(byte nuAcao) {
+	public void setNuAcao(short nuAcao) {
 		this.nuAcao = nuAcao;
 	}
 
-	@Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuModo() {
+	@Column(name = "NU_MODO_250", nullable = false, precision = 3, scale = 0)
+	public short getNuModo() {
 		return this.nuModo;
 	}
 
-	public void setNuModo(byte nuModo) {
+	public void setNuModo(short nuModo) {
 		this.nuModo = nuModo;
 	}
 
-	@Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuGrupo() {
+	@Column(name = "NU_GRUPO_250", nullable = false, precision = 3, scale = 0)
+	public short getNuGrupo() {
 		return this.nuGrupo;
 	}
 
-	public void setNuGrupo(byte nuGrupo) {
+	public void setNuGrupo(short nuGrupo) {
 		this.nuGrupo = nuGrupo;
+	}
+
+	@Column(name = "NU_SEQUENCIAL_CIF_SERVICO_250", nullable = false, precision = 9, scale = 0)
+	public int getNuSequencialCifServico() {
+		return this.nuSequencialCifServico;
+	}
+
+	public void setNuSequencialCifServico(int nuSequencialCifServico) {
+		this.nuSequencialCifServico = nuSequencialCifServico;
 	}
 
 	@Column(name = "NU_SQNCL_SLCTO_MNTNO_CIF_250", nullable = false, precision = 9, scale = 0)
@@ -67,15 +76,6 @@ public class RsrvaSocialSlndoId implements java.io.Serializable {private static 
 
 	public void setNuSqnclSlctoMntnoCif(int nuSqnclSlctoMntnoCif) {
 		this.nuSqnclSlctoMntnoCif = nuSqnclSlctoMntnoCif;
-	}
-
-	@Column(name = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, precision = 9, scale = 0)
-	public int getNuSequencialCifServico() {
-		return this.nuSequencialCifServico;
-	}
-
-	public void setNuSequencialCifServico(int nuSequencialCifServico) {
-		this.nuSequencialCifServico = nuSequencialCifServico;
 	}
 
 	@Column(name = "NU_ATRZA_SLDO_RSRVA_SCL_209", nullable = false, precision = 3, scale = 0)
@@ -107,8 +107,8 @@ public class RsrvaSocialSlndoId implements java.io.Serializable {private static 
 
 		return (this.getNuAcao() == castOther.getNuAcao()) && (this.getNuModo() == castOther.getNuModo())
 				&& (this.getNuGrupo() == castOther.getNuGrupo())
-				&& (this.getNuSqnclSlctoMntnoCif() == castOther.getNuSqnclSlctoMntnoCif())
 				&& (this.getNuSequencialCifServico() == castOther.getNuSequencialCifServico())
+				&& (this.getNuSqnclSlctoMntnoCif() == castOther.getNuSqnclSlctoMntnoCif())
 				&& (this.getNuAtrzaSldoRsrvaScl() == castOther.getNuAtrzaSldoRsrvaScl())
 				&& ((this.getInicioVigencia() == castOther.getInicioVigencia())
 						|| (this.getInicioVigencia() != null && castOther.getInicioVigencia() != null
@@ -121,8 +121,8 @@ public class RsrvaSocialSlndoId implements java.io.Serializable {private static 
 		result = 37 * result + this.getNuAcao();
 		result = 37 * result + this.getNuModo();
 		result = 37 * result + this.getNuGrupo();
-		result = 37 * result + this.getNuSqnclSlctoMntnoCif();
 		result = 37 * result + this.getNuSequencialCifServico();
+		result = 37 * result + this.getNuSqnclSlctoMntnoCif();
 		result = 37 * result + this.getNuAtrzaSldoRsrvaScl();
 		result = 37 * result + (getInicioVigencia() == null ? 0 : this.getInicioVigencia().hashCode());
 		return result;

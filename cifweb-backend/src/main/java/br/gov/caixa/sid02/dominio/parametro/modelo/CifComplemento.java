@@ -1,8 +1,7 @@
 package br.gov.caixa.sid02.dominio.parametro.modelo;
 
-import java.util.Date;
-import java.util.Objects;
 
+import java.util.Date;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -21,38 +20,36 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB201_CIF_COMPLEMENTO")
-public class CifComplemento implements java.io.Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class CifComplemento implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private CifComplementoId id;
-	private CifServico cifServicoByFkD02tb201D02tb200Vnclr;
-	private CifServico cifServicoByFkD02tb201D02tb200Vncdo;
+	private CifServico cifServicoByFkD02tb201D02tb2002;
+	private CifServico cifServicoByFkD02tb201D02tb2001;
 	private TipoVinculo tipoVinculo;
-	private char icMandatorio;
+	private String icMandatorio;
 	private Date fimVigencia;
 	private String coUsuario;
 
 	public CifComplemento() {
 	}
 
-	public CifComplemento(CifComplementoId id, CifServico cifServicoByFkD02tb201D02tb200Vnclr,
-			CifServico cifServicoByFkD02tb201D02tb200Vncdo, TipoVinculo tipoVinculo, char icMandatorio,
+	public CifComplemento(CifComplementoId id, CifServico cifServicoByFkD02tb201D02tb2002,
+			CifServico cifServicoByFkD02tb201D02tb2001, TipoVinculo tipoVinculo, String icMandatorio,
 			String coUsuario) {
 		this.id = id;
-		this.cifServicoByFkD02tb201D02tb200Vnclr = cifServicoByFkD02tb201D02tb200Vnclr;
-		this.cifServicoByFkD02tb201D02tb200Vncdo = cifServicoByFkD02tb201D02tb200Vncdo;
+		this.cifServicoByFkD02tb201D02tb2002 = cifServicoByFkD02tb201D02tb2002;
+		this.cifServicoByFkD02tb201D02tb2001 = cifServicoByFkD02tb201D02tb2001;
 		this.tipoVinculo = tipoVinculo;
 		this.icMandatorio = icMandatorio;
 		this.coUsuario = coUsuario;
 	}
 
-	public CifComplemento(CifComplementoId id, CifServico cifServicoByFkD02tb201D02tb200Vnclr,
-			CifServico cifServicoByFkD02tb201D02tb200Vncdo, TipoVinculo tipoVinculo, char icMandatorio,
-			Date fimVigencia, String coUsuario) {
+	public CifComplemento(CifComplementoId id, CifServico cifServicoByFkD02tb201D02tb2002,
+			CifServico cifServicoByFkD02tb201D02tb2001, TipoVinculo tipoVinculo, String icMandatorio, Date fimVigencia,
+			String coUsuario) {
 		this.id = id;
-		this.cifServicoByFkD02tb201D02tb200Vnclr = cifServicoByFkD02tb201D02tb200Vnclr;
-		this.cifServicoByFkD02tb201D02tb200Vncdo = cifServicoByFkD02tb201D02tb200Vncdo;
+		this.cifServicoByFkD02tb201D02tb2002 = cifServicoByFkD02tb201D02tb2002;
+		this.cifServicoByFkD02tb201D02tb2001 = cifServicoByFkD02tb201D02tb2001;
 		this.tipoVinculo = tipoVinculo;
 		this.icMandatorio = icMandatorio;
 		this.fimVigencia = fimVigencia;
@@ -60,11 +57,12 @@ public class CifComplemento implements java.io.Serializable {
 	}
 
 	@EmbeddedId
+
 	@AttributeOverrides({
-			@AttributeOverride(name = "nuAcaoVinculador", column = @Column(name = "NU_ACAO_VINCULADOR_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuModoVinculador", column = @Column(name = "NU_MODO_VINCULADOR_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuGrupoVinculador", column = @Column(name = "NU_GRUPO_VINCULADOR_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuSqnclCifSrvcoVinculador", column = @Column(name = "NU_SQNCL_CIF_SRVCO_VINCULADOR", nullable = false, precision = 9, scale = 0)),
+			@AttributeOverride(name = "nuAcaoVinculador", column = @Column(name = "NU_ACAO_VINCULADOR_200", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuModoVinculador", column = @Column(name = "NU_MODO_VINCULADOR_200", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuGrupoVinculador", column = @Column(name = "NU_GRUPO_VINCULADOR_200", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuSqnclCifSrvcoVnclr", column = @Column(name = "NU_SQNCL_CIF_SRVCO_VNCLR_200", nullable = false, precision = 9, scale = 0)),
 			@AttributeOverride(name = "inicioVigencia", column = @Column(name = "DT_INICIO_VIGENCIA", nullable = false, length = 7)) })
 	public CifComplementoId getId() {
 		return this.id;
@@ -75,31 +73,30 @@ public class CifComplemento implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumns({
-			@JoinColumn(name = "NU_SQNCL_CIF_SRVCO_VINCULADOR", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_ACAO_VINCULADOR_200", referencedColumnName = "NU_ACAO_P15", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_MODO_VINCULADOR_200", referencedColumnName = "NU_MODO_P15", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_GRUPO_VINCULADOR_200", referencedColumnName = "NU_GRUPO_P15", nullable = false, insertable = false, updatable = false) })
-	public CifServico getCifServicoByFkD02tb201D02tb200Vnclr() {
-		return this.cifServicoByFkD02tb201D02tb200Vnclr;
+	@JoinColumns({ @JoinColumn(name = "NU_ACAO_VINCULADO_200", referencedColumnName = "NU_ACAO_P15", nullable = false),
+			@JoinColumn(name = "NU_MODO_VINCULADO_200", referencedColumnName = "NU_MODO_P15", nullable = false),
+			@JoinColumn(name = "NU_GRUPO_VINCULADO_200", referencedColumnName = "NU_GRUPO_P15", nullable = false),
+			@JoinColumn(name = "NU_SQNCL_CIF_SRVCO_VNCDO_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false) })
+	public CifServico getCifServicoByFkD02tb201D02tb2002() {
+		return this.cifServicoByFkD02tb201D02tb2002;
 	}
 
-	public void setCifServicoByFkD02tb201D02tb200Vnclr(CifServico cifServicoByFkD02tb201D02tb200Vnclr) {
-		this.cifServicoByFkD02tb201D02tb200Vnclr = cifServicoByFkD02tb201D02tb200Vnclr;
+	public void setCifServicoByFkD02tb201D02tb2002(CifServico cifServicoByFkD02tb201D02tb2002) {
+		this.cifServicoByFkD02tb201D02tb2002 = cifServicoByFkD02tb201D02tb2002;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-			@JoinColumn(name = "NU_SQNCL_CIF_SRVCO_VINCULADO", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false),
-			@JoinColumn(name = "NU_ACAO_VINCULADO_200", referencedColumnName = "NU_ACAO_P15", nullable = false),
-			@JoinColumn(name = "NU_MODO_VINCULADO_200", referencedColumnName = "NU_MODO_P15", nullable = false),
-			@JoinColumn(name = "NU_GRUPO_VINCULADO_200", referencedColumnName = "NU_GRUPO_P15", nullable = false) })
-	public CifServico getCifServicoByFkD02tb201D02tb200Vncdo() {
-		return this.cifServicoByFkD02tb201D02tb200Vncdo;
+			@JoinColumn(name = "NU_ACAO_VINCULADOR_200", referencedColumnName = "NU_ACAO_P15", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_MODO_VINCULADOR_200", referencedColumnName = "NU_MODO_P15", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_GRUPO_VINCULADOR_200", referencedColumnName = "NU_GRUPO_P15", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_SQNCL_CIF_SRVCO_VNCLR_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, insertable = false, updatable = false) })
+	public CifServico getCifServicoByFkD02tb201D02tb2001() {
+		return this.cifServicoByFkD02tb201D02tb2001;
 	}
 
-	public void setCifServicoByFkD02tb201D02tb200Vncdo(CifServico cifServicoByFkD02tb201D02tb200Vncdo) {
-		this.cifServicoByFkD02tb201D02tb200Vncdo = cifServicoByFkD02tb201D02tb200Vncdo;
+	public void setCifServicoByFkD02tb201D02tb2001(CifServico cifServicoByFkD02tb201D02tb2001) {
+		this.cifServicoByFkD02tb201D02tb2001 = cifServicoByFkD02tb201D02tb2001;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -113,11 +110,11 @@ public class CifComplemento implements java.io.Serializable {
 	}
 
 	@Column(name = "IC_MANDATORIO", nullable = false, length = 1)
-	public char getIcMandatorio() {
+	public String getIcMandatorio() {
 		return this.icMandatorio;
 	}
 
-	public void setIcMandatorio(char icMandatorio) {
+	public void setIcMandatorio(String icMandatorio) {
 		this.icMandatorio = icMandatorio;
 	}
 
@@ -138,23 +135,6 @@ public class CifComplemento implements java.io.Serializable {
 
 	public void setCoUsuario(String coUsuario) {
 		this.coUsuario = coUsuario;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CifComplemento other = (CifComplemento) obj;
-		return Objects.equals(id, other.id);
 	}
 
 }

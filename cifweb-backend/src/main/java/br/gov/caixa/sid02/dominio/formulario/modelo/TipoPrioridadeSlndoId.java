@@ -9,58 +9,58 @@ import javax.persistence.Embeddable;
  * TipoPrioridadeSlndoId
  */
 @Embeddable
-public class TipoPrioridadeSlndoId implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class TipoPrioridadeSlndoId implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
-	private byte nuAcao;
-	private byte nuModo;
-	private byte nuGrupo;
+	private short nuAcao;
+	private short nuModo;
+	private short nuGrupo;
 	private int nuSequencialCifServico;
 	private int nuSqnclSlctoMntnoCif;
+	private int nuPrioridade;
 	private Date inicioVigencia;
-	private short nuPrioridade;
 
 	public TipoPrioridadeSlndoId() {
 	}
 
-	public TipoPrioridadeSlndoId(byte nuAcao, byte nuModo, byte nuGrupo, int nuSequencialCifServico,
-			int nuSqnclSlctoMntnoCif, Date inicioVigencia, short nuPrioridade) {
+	public TipoPrioridadeSlndoId(short nuAcao, short nuModo, short nuGrupo, int nuSequencialCifServico,
+			int nuSqnclSlctoMntnoCif, int nuPrioridade, Date inicioVigencia) {
 		this.nuAcao = nuAcao;
 		this.nuModo = nuModo;
 		this.nuGrupo = nuGrupo;
 		this.nuSequencialCifServico = nuSequencialCifServico;
 		this.nuSqnclSlctoMntnoCif = nuSqnclSlctoMntnoCif;
-		this.inicioVigencia = inicioVigencia;
 		this.nuPrioridade = nuPrioridade;
+		this.inicioVigencia = inicioVigencia;
 	}
 
-	@Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuAcao() {
+	@Column(name = "NU_ACAO_250", nullable = false, precision = 3, scale = 0)
+	public short getNuAcao() {
 		return this.nuAcao;
 	}
 
-	public void setNuAcao(byte nuAcao) {
+	public void setNuAcao(short nuAcao) {
 		this.nuAcao = nuAcao;
 	}
 
-	@Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuModo() {
+	@Column(name = "NU_MODO_250", nullable = false, precision = 3, scale = 0)
+	public short getNuModo() {
 		return this.nuModo;
 	}
 
-	public void setNuModo(byte nuModo) {
+	public void setNuModo(short nuModo) {
 		this.nuModo = nuModo;
 	}
 
-	@Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuGrupo() {
+	@Column(name = "NU_GRUPO_250", nullable = false, precision = 3, scale = 0)
+	public short getNuGrupo() {
 		return this.nuGrupo;
 	}
 
-	public void setNuGrupo(byte nuGrupo) {
+	public void setNuGrupo(short nuGrupo) {
 		this.nuGrupo = nuGrupo;
 	}
 
-	@Column(name = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, precision = 9, scale = 0)
+	@Column(name = "NU_SEQUENCIAL_CIF_SERVICO_250", nullable = false, precision = 9, scale = 0)
 	public int getNuSequencialCifServico() {
 		return this.nuSequencialCifServico;
 	}
@@ -78,6 +78,15 @@ public class TipoPrioridadeSlndoId implements java.io.Serializable {private stat
 		this.nuSqnclSlctoMntnoCif = nuSqnclSlctoMntnoCif;
 	}
 
+	@Column(name = "NU_PRIORIDADE_P55", nullable = false, precision = 5, scale = 0)
+	public int getNuPrioridade() {
+		return this.nuPrioridade;
+	}
+
+	public void setNuPrioridade(int nuPrioridade) {
+		this.nuPrioridade = nuPrioridade;
+	}
+
 	@Column(name = "DT_INICIO_VIGENCIA", nullable = false, length = 7)
 	public Date getInicioVigencia() {
 		return this.inicioVigencia;
@@ -85,15 +94,6 @@ public class TipoPrioridadeSlndoId implements java.io.Serializable {private stat
 
 	public void setInicioVigencia(Date inicioVigencia) {
 		this.inicioVigencia = inicioVigencia;
-	}
-
-	@Column(name = "NU_PRIORIDADE_P55", nullable = false, precision = 3, scale = 0)
-	public short getNuPrioridade() {
-		return this.nuPrioridade;
-	}
-
-	public void setNuPrioridade(short nuPrioridade) {
-		this.nuPrioridade = nuPrioridade;
 	}
 
 	public boolean equals(Object other) {
@@ -109,10 +109,10 @@ public class TipoPrioridadeSlndoId implements java.io.Serializable {private stat
 				&& (this.getNuGrupo() == castOther.getNuGrupo())
 				&& (this.getNuSequencialCifServico() == castOther.getNuSequencialCifServico())
 				&& (this.getNuSqnclSlctoMntnoCif() == castOther.getNuSqnclSlctoMntnoCif())
+				&& (this.getNuPrioridade() == castOther.getNuPrioridade())
 				&& ((this.getInicioVigencia() == castOther.getInicioVigencia())
 						|| (this.getInicioVigencia() != null && castOther.getInicioVigencia() != null
-								&& this.getInicioVigencia().equals(castOther.getInicioVigencia())))
-				&& (this.getNuPrioridade() == castOther.getNuPrioridade());
+								&& this.getInicioVigencia().equals(castOther.getInicioVigencia())));
 	}
 
 	public int hashCode() {
@@ -123,8 +123,8 @@ public class TipoPrioridadeSlndoId implements java.io.Serializable {private stat
 		result = 37 * result + this.getNuGrupo();
 		result = 37 * result + this.getNuSequencialCifServico();
 		result = 37 * result + this.getNuSqnclSlctoMntnoCif();
-		result = 37 * result + (getInicioVigencia() == null ? 0 : this.getInicioVigencia().hashCode());
 		result = 37 * result + this.getNuPrioridade();
+		result = 37 * result + (getInicioVigencia() == null ? 0 : this.getInicioVigencia().hashCode());
 		return result;
 	}
 

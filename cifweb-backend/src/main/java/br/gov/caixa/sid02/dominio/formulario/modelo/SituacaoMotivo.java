@@ -20,18 +20,18 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB264_SITUACAO_MOTIVO")
-public class SituacaoMotivo implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class SituacaoMotivo implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private SituacaoMotivoId id;
 	private SlctoManutencaoCif slctoManutencaoCif;
-	private char coComportamento;
+	private String coComportamento;
 	private Date fimVigencia;
 	private String coUsuario;
 
 	public SituacaoMotivo() {
 	}
 
-	public SituacaoMotivo(SituacaoMotivoId id, SlctoManutencaoCif slctoManutencaoCif, char coComportamento,
+	public SituacaoMotivo(SituacaoMotivoId id, SlctoManutencaoCif slctoManutencaoCif, String coComportamento,
 			String coUsuario) {
 		this.id = id;
 		this.slctoManutencaoCif = slctoManutencaoCif;
@@ -39,7 +39,7 @@ public class SituacaoMotivo implements java.io.Serializable {private static fina
 		this.coUsuario = coUsuario;
 	}
 
-	public SituacaoMotivo(SituacaoMotivoId id, SlctoManutencaoCif slctoManutencaoCif, char coComportamento,
+	public SituacaoMotivo(SituacaoMotivoId id, SlctoManutencaoCif slctoManutencaoCif, String coComportamento,
 			Date fimVigencia, String coUsuario) {
 		this.id = id;
 		this.slctoManutencaoCif = slctoManutencaoCif;
@@ -51,13 +51,13 @@ public class SituacaoMotivo implements java.io.Serializable {private static fina
 	@EmbeddedId
 
 	@AttributeOverrides({
+			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_250", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_250", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_250", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO_250", nullable = false, precision = 9, scale = 0)),
 			@AttributeOverride(name = "nuSqnclSlctoMntnoCif", column = @Column(name = "NU_SQNCL_SLCTO_MNTNO_CIF_250", nullable = false, precision = 9, scale = 0)),
-			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, precision = 9, scale = 0)),
-			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuSituacaoContrato", column = @Column(name = "NU_SITUACAO_CONTRATO_P58", nullable = false, precision = 9, scale = 0)),
-			@AttributeOverride(name = "nuMotivoContrato", column = @Column(name = "NU_MOTIVO_CONTRATO_P58", nullable = false, precision = 9, scale = 0)),
+			@AttributeOverride(name = "nuSituacaoContrato", column = @Column(name = "NU_SITUACAO_CONTRATO_P58", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuMotivoContrato", column = @Column(name = "NU_MOTIVO_CONTRATO_P58", nullable = false, precision = 3, scale = 0)),
 			@AttributeOverride(name = "inicioVigencia", column = @Column(name = "DT_INICIO_VIGENCIA", nullable = false, length = 7)) })
 	public SituacaoMotivoId getId() {
 		return this.id;
@@ -69,11 +69,11 @@ public class SituacaoMotivo implements java.io.Serializable {private static fina
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-			@JoinColumn(name = "NU_SQNCL_SLCTO_MNTNO_CIF_250", referencedColumnName = "NU_SQNCL_SLCTO_MNTNO_CIF_250", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_ACAO_200", referencedColumnName = "NU_ACAO_200", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_MODO_200", referencedColumnName = "NU_MODO_200", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_GRUPO_200", referencedColumnName = "NU_GRUPO_200", nullable = false, insertable = false, updatable = false) })
+			@JoinColumn(name = "NU_ACAO_250", referencedColumnName = "NU_ACAO_200", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_MODO_250", referencedColumnName = "NU_MODO_200", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_GRUPO_250", referencedColumnName = "NU_GRUPO_200", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_250", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_SQNCL_SLCTO_MNTNO_CIF_250", referencedColumnName = "NU_SQNCL_SLCTO_MNTNO_CIF", nullable = false, insertable = false, updatable = false) })
 	public SlctoManutencaoCif getSlctoManutencaoCif() {
 		return this.slctoManutencaoCif;
 	}
@@ -83,11 +83,11 @@ public class SituacaoMotivo implements java.io.Serializable {private static fina
 	}
 
 	@Column(name = "CO_COMPORTAMENTO", nullable = false, length = 1)
-	public char getCoComportamento() {
+	public String getCoComportamento() {
 		return this.coComportamento;
 	}
 
-	public void setCoComportamento(char coComportamento) {
+	public void setCoComportamento(String coComportamento) {
 		this.coComportamento = coComportamento;
 	}
 

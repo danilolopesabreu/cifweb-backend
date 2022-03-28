@@ -3,6 +3,7 @@ package br.gov.caixa.sid02.dominio.parametro.modelo;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,12 +18,10 @@ import br.gov.caixa.sid02.dominio.formulario.modelo.RsrvaSocialSlndo;
  */
 @Entity
 @Table(name = "D02TB209_SALDO_RESERVA_SOCIAL")
-public class SaldoReservaSocial implements java.io.Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class SaldoReservaSocial implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private short nuTipoAtrzaSaldoRsrvaScl;
-	private String deTipoAtrzaSaldoRsrvaScl;
+	private String ETipoAtrzaSaldoRsrvaScl;
 	private Set<SaldoRsrvaSclCndo> saldoRsrvaSclCndos = new HashSet<SaldoRsrvaSclCndo>(0);
 	private Set<RsrvaSocialSlndo> rsrvaSocialSlndos = new HashSet<RsrvaSocialSlndo>(0);
 
@@ -36,7 +35,7 @@ public class SaldoReservaSocial implements java.io.Serializable {
 	public SaldoReservaSocial(short nuTipoAtrzaSaldoRsrvaScl, String ETipoAtrzaSaldoRsrvaScl,
 			Set<SaldoRsrvaSclCndo> saldoRsrvaSclCndos, Set<RsrvaSocialSlndo> rsrvaSocialSlndos) {
 		this.nuTipoAtrzaSaldoRsrvaScl = nuTipoAtrzaSaldoRsrvaScl;
-		this.deTipoAtrzaSaldoRsrvaScl = ETipoAtrzaSaldoRsrvaScl;
+		this.ETipoAtrzaSaldoRsrvaScl = ETipoAtrzaSaldoRsrvaScl;
 		this.saldoRsrvaSclCndos = saldoRsrvaSclCndos;
 		this.rsrvaSocialSlndos = rsrvaSocialSlndos;
 	}
@@ -53,12 +52,12 @@ public class SaldoReservaSocial implements java.io.Serializable {
 	}
 
 	@Column(name = "DE_TIPO_ATRZA_SALDO_RSRVA_SCL", length = 30)
-	public String getDeTipoAtrzaSaldoRsrvaScl() {
-		return this.deTipoAtrzaSaldoRsrvaScl;
+	public String getETipoAtrzaSaldoRsrvaScl() {
+		return this.ETipoAtrzaSaldoRsrvaScl;
 	}
 
-	public void setDeTipoAtrzaSaldoRsrvaScl(String ETipoAtrzaSaldoRsrvaScl) {
-		this.deTipoAtrzaSaldoRsrvaScl = ETipoAtrzaSaldoRsrvaScl;
+	public void setETipoAtrzaSaldoRsrvaScl(String ETipoAtrzaSaldoRsrvaScl) {
+		this.ETipoAtrzaSaldoRsrvaScl = ETipoAtrzaSaldoRsrvaScl;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "saldoReservaSocial")

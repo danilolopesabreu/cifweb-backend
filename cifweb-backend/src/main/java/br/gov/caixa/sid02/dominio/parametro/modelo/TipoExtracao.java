@@ -3,6 +3,7 @@ package br.gov.caixa.sid02.dominio.parametro.modelo;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,10 +18,10 @@ import br.gov.caixa.sid02.dominio.formulario.modelo.TipoExtracaoSlndo;
  */
 @Entity
 @Table(name = "D02TB207_TIPO_EXTRACAO")
-public class TipoExtracao implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class TipoExtracao implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private short nuTipoExtracao;
-	private char coTipoExtracao;
+	private String coTipoExtracao;
 	private String noTipoExtracao;
 	private Set<TipoExtracaoCndo> tipoExtracaoCndos = new HashSet<TipoExtracaoCndo>(0);
 	private Set<TipoExtracaoSlndo> tipoExtracaoSlndos = new HashSet<TipoExtracaoSlndo>(0);
@@ -28,13 +29,13 @@ public class TipoExtracao implements java.io.Serializable {private static final 
 	public TipoExtracao() {
 	}
 
-	public TipoExtracao(short nuTipoExtracao, char coTipoExtracao, String noTipoExtracao) {
+	public TipoExtracao(short nuTipoExtracao, String coTipoExtracao, String noTipoExtracao) {
 		this.nuTipoExtracao = nuTipoExtracao;
 		this.coTipoExtracao = coTipoExtracao;
 		this.noTipoExtracao = noTipoExtracao;
 	}
 
-	public TipoExtracao(short nuTipoExtracao, char coTipoExtracao, String noTipoExtracao,
+	public TipoExtracao(short nuTipoExtracao, String coTipoExtracao, String noTipoExtracao,
 			Set<TipoExtracaoCndo> tipoExtracaoCndos, Set<TipoExtracaoSlndo> tipoExtracaoSlndos) {
 		this.nuTipoExtracao = nuTipoExtracao;
 		this.coTipoExtracao = coTipoExtracao;
@@ -55,11 +56,11 @@ public class TipoExtracao implements java.io.Serializable {private static final 
 	}
 
 	@Column(name = "CO_TIPO_EXTRACAO", nullable = false, length = 1)
-	public char getCoTipoExtracao() {
+	public String getCoTipoExtracao() {
 		return this.coTipoExtracao;
 	}
 
-	public void setCoTipoExtracao(char coTipoExtracao) {
+	public void setCoTipoExtracao(String coTipoExtracao) {
 		this.coTipoExtracao = coTipoExtracao;
 	}
 

@@ -1,8 +1,7 @@
 package br.gov.caixa.sid02.dominio.parametro.modelo;
 
-import java.util.Date;
-import java.util.Objects;
 
+import java.util.Date;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -21,8 +20,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "D02TB203_CIF_COREOGRAFIA")
-public class CifCoreografia implements java.io.Serializable {
-	private static final long serialVersionUID = 1L;
+public class CifCoreografia implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private CifCoreografiaId id;
 	private CifServico cifServico;
@@ -48,9 +46,9 @@ public class CifCoreografia implements java.io.Serializable {
 	@EmbeddedId
 
 	@AttributeOverrides({
-			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)),
-			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)),
+			@AttributeOverride(name = "nuAcao", column = @Column(name = "NU_ACAO_200", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuModo", column = @Column(name = "NU_MODO_200", nullable = false, precision = 3, scale = 0)),
+			@AttributeOverride(name = "nuGrupo", column = @Column(name = "NU_GRUPO_200", nullable = false, precision = 3, scale = 0)),
 			@AttributeOverride(name = "nuSequencialCifServico", column = @Column(name = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, precision = 9, scale = 0)),
 			@AttributeOverride(name = "nuFaixa", column = @Column(name = "NU_FAIXA", nullable = false, precision = 4, scale = 0)),
 			@AttributeOverride(name = "nuCoreografia", column = @Column(name = "NU_COREOGRAFIA", nullable = false, precision = 5, scale = 0)),
@@ -66,10 +64,10 @@ public class CifCoreografia implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
-			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, insertable = false, updatable = false),
 			@JoinColumn(name = "NU_ACAO_200", referencedColumnName = "NU_ACAO_P15", nullable = false, insertable = false, updatable = false),
 			@JoinColumn(name = "NU_MODO_200", referencedColumnName = "NU_MODO_P15", nullable = false, insertable = false, updatable = false),
-			@JoinColumn(name = "NU_GRUPO_200", referencedColumnName = "NU_GRUPO_P15", nullable = false, insertable = false, updatable = false) })
+			@JoinColumn(name = "NU_GRUPO_200", referencedColumnName = "NU_GRUPO_P15", nullable = false, insertable = false, updatable = false),
+			@JoinColumn(name = "NU_SEQUENCIAL_CIF_SERVICO_200", referencedColumnName = "NU_SEQUENCIAL_CIF_SERVICO", nullable = false, insertable = false, updatable = false) })
 	public CifServico getCifServico() {
 		return this.cifServico;
 	}
@@ -95,23 +93,6 @@ public class CifCoreografia implements java.io.Serializable {
 
 	public void setCoUsuario(String coUsuario) {
 		this.coUsuario = coUsuario;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CifCoreografia other = (CifCoreografia) obj;
-		return Objects.equals(id, other.id);
 	}
 
 }

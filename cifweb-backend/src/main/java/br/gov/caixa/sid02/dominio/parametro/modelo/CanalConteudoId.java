@@ -9,58 +9,58 @@ import javax.persistence.Embeddable;
  * CanalConteudoId
  */
 @Embeddable
-public class CanalConteudoId implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class CanalConteudoId implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
-	private byte nuAcao;
-	private byte nuModo;
-	private byte nuGrupo;
+	private short nuAcao;
+	private short nuModo;
+	private short nuGrupo;
 	private int nuSequencialCifServico;
 	private int nuSqnclCifPrpreFrmro;
-	private int nuCanalComercializacao;
+	private int nuCanalComercializacaoO;
 	private Date inicioVigencia;
 
 	public CanalConteudoId() {
 	}
 
-	public CanalConteudoId(byte nuAcao, byte nuModo, byte nuGrupo, int nuSequencialCifServico, int nuSqnclCifPrpreFrmro,
-			int nuCanalComercializacaoO, Date inicioVigencia) {
+	public CanalConteudoId(short nuAcao, short nuModo, short nuGrupo, int nuSequencialCifServico,
+			int nuSqnclCifPrpreFrmro, int nuCanalComercializacaoO, Date inicioVigencia) {
 		this.nuAcao = nuAcao;
 		this.nuModo = nuModo;
 		this.nuGrupo = nuGrupo;
 		this.nuSequencialCifServico = nuSequencialCifServico;
 		this.nuSqnclCifPrpreFrmro = nuSqnclCifPrpreFrmro;
-		this.nuCanalComercializacao = nuCanalComercializacaoO;
+		this.nuCanalComercializacaoO = nuCanalComercializacaoO;
 		this.inicioVigencia = inicioVigencia;
 	}
 
-	@Column(name = "NU_ACAO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuAcao() {
+	@Column(name = "NU_ACAO_202", nullable = false, precision = 3, scale = 0)
+	public short getNuAcao() {
 		return this.nuAcao;
 	}
 
-	public void setNuAcao(byte nuAcao) {
+	public void setNuAcao(short nuAcao) {
 		this.nuAcao = nuAcao;
 	}
 
-	@Column(name = "NU_MODO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuModo() {
+	@Column(name = "NU_MODO_202", nullable = false, precision = 3, scale = 0)
+	public short getNuModo() {
 		return this.nuModo;
 	}
 
-	public void setNuModo(byte nuModo) {
+	public void setNuModo(short nuModo) {
 		this.nuModo = nuModo;
 	}
 
-	@Column(name = "NU_GRUPO_200", nullable = false, precision = 2, scale = 0)
-	public byte getNuGrupo() {
+	@Column(name = "NU_GRUPO_202", nullable = false, precision = 3, scale = 0)
+	public short getNuGrupo() {
 		return this.nuGrupo;
 	}
 
-	public void setNuGrupo(byte nuGrupo) {
+	public void setNuGrupo(short nuGrupo) {
 		this.nuGrupo = nuGrupo;
 	}
 
-	@Column(name = "NU_SEQUENCIAL_CIF_SERVICO_200", nullable = false, precision = 9, scale = 0)
+	@Column(name = "NU_SEQUENCIAL_CIF_SERVICO_202", nullable = false, precision = 9, scale = 0)
 	public int getNuSequencialCifServico() {
 		return this.nuSequencialCifServico;
 	}
@@ -79,12 +79,12 @@ public class CanalConteudoId implements java.io.Serializable {private static fin
 	}
 
 	@Column(name = "NU_CANAL_COMERCIALIZACAO_O15", nullable = false, precision = 9, scale = 0)
-	public int getNuCanalComercializacao() {
-		return this.nuCanalComercializacao;
+	public int getNuCanalComercializacaoO() {
+		return this.nuCanalComercializacaoO;
 	}
 
-	public void setNuCanalComercializacao(int nuCanalComercializacaoO) {
-		this.nuCanalComercializacao = nuCanalComercializacaoO;
+	public void setNuCanalComercializacaoO(int nuCanalComercializacaoO) {
+		this.nuCanalComercializacaoO = nuCanalComercializacaoO;
 	}
 
 	@Column(name = "DT_INICIO_VIGENCIA", nullable = false, length = 7)
@@ -109,7 +109,7 @@ public class CanalConteudoId implements java.io.Serializable {private static fin
 				&& (this.getNuGrupo() == castOther.getNuGrupo())
 				&& (this.getNuSequencialCifServico() == castOther.getNuSequencialCifServico())
 				&& (this.getNuSqnclCifPrpreFrmro() == castOther.getNuSqnclCifPrpreFrmro())
-				&& (this.getNuCanalComercializacao() == castOther.getNuCanalComercializacao())
+				&& (this.getNuCanalComercializacaoO() == castOther.getNuCanalComercializacaoO())
 				&& ((this.getInicioVigencia() == castOther.getInicioVigencia())
 						|| (this.getInicioVigencia() != null && castOther.getInicioVigencia() != null
 								&& this.getInicioVigencia().equals(castOther.getInicioVigencia())));
@@ -123,7 +123,7 @@ public class CanalConteudoId implements java.io.Serializable {private static fin
 		result = 37 * result + this.getNuGrupo();
 		result = 37 * result + this.getNuSequencialCifServico();
 		result = 37 * result + this.getNuSqnclCifPrpreFrmro();
-		result = 37 * result + this.getNuCanalComercializacao();
+		result = 37 * result + this.getNuCanalComercializacaoO();
 		result = 37 * result + (getInicioVigencia() == null ? 0 : this.getInicioVigencia().hashCode());
 		return result;
 	}

@@ -8,20 +8,47 @@ import javax.persistence.Embeddable;
  * CifServicoId
  */
 @Embeddable
-public class CifServicoId implements java.io.Serializable {private static final long serialVersionUID = 1L;
+public class CifServicoId implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
+	private short nuAcao;
+	private short nuModo;
+	private short nuGrupo;
 	private int nuSequencialCifServico;
-	private byte nuAcao;
-	private byte nuModo;
-	private byte nuGrupo;
 
 	public CifServicoId() {
 	}
 
-	public CifServicoId(int nuSequencialCifServico, byte nuAcao, byte nuModo, byte nuGrupo) {
-		this.nuSequencialCifServico = nuSequencialCifServico;
+	public CifServicoId(short nuAcao, short nuModo, short nuGrupo, int nuSequencialCifServico) {
 		this.nuAcao = nuAcao;
 		this.nuModo = nuModo;
+		this.nuGrupo = nuGrupo;
+		this.nuSequencialCifServico = nuSequencialCifServico;
+	}
+
+	@Column(name = "NU_ACAO_P15", nullable = false, precision = 3, scale = 0)
+	public short getNuAcao() {
+		return this.nuAcao;
+	}
+
+	public void setNuAcao(short nuAcao) {
+		this.nuAcao = nuAcao;
+	}
+
+	@Column(name = "NU_MODO_P15", nullable = false, precision = 3, scale = 0)
+	public short getNuModo() {
+		return this.nuModo;
+	}
+
+	public void setNuModo(short nuModo) {
+		this.nuModo = nuModo;
+	}
+
+	@Column(name = "NU_GRUPO_P15", nullable = false, precision = 3, scale = 0)
+	public short getNuGrupo() {
+		return this.nuGrupo;
+	}
+
+	public void setNuGrupo(short nuGrupo) {
 		this.nuGrupo = nuGrupo;
 	}
 
@@ -34,33 +61,6 @@ public class CifServicoId implements java.io.Serializable {private static final 
 		this.nuSequencialCifServico = nuSequencialCifServico;
 	}
 
-	@Column(name = "NU_ACAO_P15", nullable = false, precision = 2, scale = 0)
-	public byte getNuAcao() {
-		return this.nuAcao;
-	}
-
-	public void setNuAcao(byte nuAcao) {
-		this.nuAcao = nuAcao;
-	}
-
-	@Column(name = "NU_MODO_P15", nullable = false, precision = 2, scale = 0)
-	public byte getNuModo() {
-		return this.nuModo;
-	}
-
-	public void setNuModo(byte nuModo) {
-		this.nuModo = nuModo;
-	}
-
-	@Column(name = "NU_GRUPO_P15", nullable = false, precision = 2, scale = 0)
-	public byte getNuGrupo() {
-		return this.nuGrupo;
-	}
-
-	public void setNuGrupo(byte nuGrupo) {
-		this.nuGrupo = nuGrupo;
-	}
-
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -70,18 +70,18 @@ public class CifServicoId implements java.io.Serializable {private static final 
 			return false;
 		CifServicoId castOther = (CifServicoId) other;
 
-		return (this.getNuSequencialCifServico() == castOther.getNuSequencialCifServico())
-				&& (this.getNuAcao() == castOther.getNuAcao()) && (this.getNuModo() == castOther.getNuModo())
-				&& (this.getNuGrupo() == castOther.getNuGrupo());
+		return (this.getNuAcao() == castOther.getNuAcao()) && (this.getNuModo() == castOther.getNuModo())
+				&& (this.getNuGrupo() == castOther.getNuGrupo())
+				&& (this.getNuSequencialCifServico() == castOther.getNuSequencialCifServico());
 	}
 
 	public int hashCode() {
 		int result = 17;
 
-		result = 37 * result + this.getNuSequencialCifServico();
 		result = 37 * result + this.getNuAcao();
 		result = 37 * result + this.getNuModo();
 		result = 37 * result + this.getNuGrupo();
+		result = 37 * result + this.getNuSequencialCifServico();
 		return result;
 	}
 

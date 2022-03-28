@@ -2,7 +2,6 @@ package br.gov.caixa.sid02.dominio.parametro.modelo;
 
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,25 +15,27 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "D02TB204_TIPO_VINCULO")
-public class TipoVinculo implements java.io.Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class TipoVinculo implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private byte nuTipoVinculo;
 	private String noTipoVinculo;
+	private String coTipoVinculo;
 	private Set<CifComplemento> cifComplementos = new HashSet<CifComplemento>(0);
 
 	public TipoVinculo() {
 	}
 
-	public TipoVinculo(byte nuTipoVinculo, String noTipoVinculo) {
+	public TipoVinculo(byte nuTipoVinculo, String noTipoVinculo, String coTipoVinculo) {
 		this.nuTipoVinculo = nuTipoVinculo;
 		this.noTipoVinculo = noTipoVinculo;
+		this.coTipoVinculo = coTipoVinculo;
 	}
 
-	public TipoVinculo(byte nuTipoVinculo, String noTipoVinculo, Set<CifComplemento> cifComplementos) {
+	public TipoVinculo(byte nuTipoVinculo, String noTipoVinculo, String coTipoVinculo,
+			Set<CifComplemento> cifComplementos) {
 		this.nuTipoVinculo = nuTipoVinculo;
 		this.noTipoVinculo = noTipoVinculo;
+		this.coTipoVinculo = coTipoVinculo;
 		this.cifComplementos = cifComplementos;
 	}
 
@@ -58,6 +59,15 @@ public class TipoVinculo implements java.io.Serializable {
 		this.noTipoVinculo = noTipoVinculo;
 	}
 
+	@Column(name = "CO_TIPO_VINCULO", nullable = false, length = 1)
+	public String getCoTipoVinculo() {
+		return this.coTipoVinculo;
+	}
+
+	public void setCoTipoVinculo(String coTipoVinculo) {
+		this.coTipoVinculo = coTipoVinculo;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoVinculo")
 	public Set<CifComplemento> getCifComplementos() {
 		return this.cifComplementos;
@@ -65,23 +75,6 @@ public class TipoVinculo implements java.io.Serializable {
 
 	public void setCifComplementos(Set<CifComplemento> cifComplementos) {
 		this.cifComplementos = cifComplementos;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(noTipoVinculo, nuTipoVinculo);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		TipoVinculo other = (TipoVinculo) obj;
-		return Objects.equals(noTipoVinculo, other.noTipoVinculo) && nuTipoVinculo == other.nuTipoVinculo;
 	}
 
 }

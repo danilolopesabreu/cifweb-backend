@@ -15,9 +15,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "D02TB205_TIPO_PRPRE_FRMRO")
-public class TipoPrpreFrmro implements java.io.Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class TipoPrpreFrmro implements java.io.Serializable { private static final long serialVersionUID = 1L;
 
 	private short nuTipoPropriedadeFormulario;
 	private String noTipoPropriedadeFormulario;
