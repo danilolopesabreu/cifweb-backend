@@ -1,0 +1,161 @@
+<div class="main-content" >
+    <div class="container-fluid">
+
+        <ol class="breadcrumb">
+            <li><a ruterLinkActive = "active" [routerLink]="['/components/typography']">Breadcrumb 1</a></li>
+            <li><a ruterLinkActive = "active" [routerLink]="['/components/typography']">Breadcrumb 2</a></li>
+            <li class="active">Pagina Atual</li>
+        </ol>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Tipografia</h4>
+                        <p class="category">subtitulo/categoria/descrição</p>
+                    </div>
+                    <div class="content">
+
+                        <div class="typo-line">
+                            <h1><p class="category">Header 1</p> Cabeçalho / Título </h1>
+                        </div>
+                        <div class="typo-line">
+                            <h2><p class="category">Header 2</p> Cabeçalho / Título</h2>
+                        </div>
+                        <div class="typo-line">
+                            <h3><p class="category">Header 3</p> Cabeçalho / Título</h3>
+                        </div>
+                        <div class="typo-line">
+                            <h4><p class="category">Header 4</p> Cabeçalho / Título</h4>
+                        </div>
+                        <div class="typo-line">
+                            <h5><p class="category">Header 5</p> Cabeçalho / Título</h5>
+                        </div>
+                         <div class="typo-line">
+                            <h6><p class="category">Header 6</p> Cabeçalho / Título</h6>
+                        </div>
+                        <div class="typo-line">
+                            <p><span class="category">Paragrafo</span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
+                        </div>
+                        <div class="typo-line">
+                            <p class="category">Blockquote</p>
+                            <blockquote>
+                             <p>
+                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
+                             </p>
+                             <small>
+                             Steve Jobs, CEO Apple
+                             </small>
+                            </blockquote>
+                        </div>
+
+                        <div class="typo-line">
+                            <p class="category">Muted Text</p>
+                            <p class="text-muted">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
+                            </p>
+                        </div>
+                        <div class="typo-line">
+                            <!--
+                             there are also "text-info", "text-success", "text-warning", "text-danger" clases for the text
+                             -->
+                            <p class="category">Texto colorido</p>
+                            <p class="text-primary">
+                                Text Primary -  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
+                            </p>
+                            <p class="text-info">
+                                Text Info -  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
+                            </p>
+                            <p class="text-success">
+                                Text Success -  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
+                            </p>
+                            <p class="text-warning">
+                                Text Warning -  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
+                            </p>
+                            <p class="text-danger">
+                                Text Danger -  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
+                            </p>
+                        </div>
+
+                        <div class="typo-line">
+                            <h2><p class="category">Tag Small</p>Cabeçalho com subtitulo <br><small>Usando tag "&lt;small&gt;"  pra subtitulo</small> </h2>
+                        </div>
+
+                        <div class="typo-line">
+                            <p class="category">Listas</p>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h5>Unordered List</h5>
+                                    <ul>
+                                       <li>List Item</li>
+                                       <li>List Item</li>
+                                       <li class="list-unstyled">
+                                          <ul>
+                                             <li>List Item</li>
+                                             <li>List Item</li>
+                                             <li>List Item</li>
+                                          </ul>
+                                       </li>
+                                       <li>List Item</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>Ordered List</h5>
+                                    <ol>
+                                       <li>List Item</li>
+                                       <li>List Item</li>
+                                       <li>List Item</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>Unstyled List</h5>
+                                    <ul class="list-unstyled">
+                                       <li>List Item</li>
+                                       <li>List Item</li>
+                                       <li>List Item</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>Inline List</h5>
+                                    <ul class="list-inline">
+                                       <li>List Item</li>
+                                       <li>List Item</li>
+                                       <li>List Item</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="typo-line">
+                            <p class="category">Blockquotes</p>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>Blockquote Padrão</h5>
+                                    <blockquote>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                    </blockquote>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Blockquote com citação</h5>
+                                    <blockquote>
+                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                       <small>Alguem famoso em
+                                          <cite title="Source Title">Nome da fonte</cite>
+                                       </small>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

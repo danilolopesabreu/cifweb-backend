@@ -1,0 +1,191 @@
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-wizard" id="wizardCard">
+                <form [formGroup]="type" id="wizardForm" method="" action="">
+
+                <div class="header text-center">
+                    <h3 class="title">Título Wizard</h3>
+                    <p class="category">Alguma funcionalidade complicada dividida em etapas</p>
+                </div>
+
+                <div class="content">
+                    <ul class="nav">
+                        <li><a href="#tab1" data-toggle="tab">Primeira Tab</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Segunda Tab</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Terceira Tab</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tab1">
+                            <h5 class="text-center"></h5>
+                            <div class="row">
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="form-group" [ngClass]="displayFieldCss(type, 'firstName')">
+                                        <label class="control-label">Nome<span class="star">*</span></label>
+                                        <input class="form-control"
+                                               type="text"
+                                               name="firstname"
+                                               placeholder="ex: Joao"
+                                               formControlName="firstName"
+                                               data-msg="Campo obrigatório"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group" [ngClass]="displayFieldCss(type, 'lastName')">
+                                        <label class="control-label">Sobrenome<span class="star">*</span></label>
+                                        <input class="form-control"
+                                               type="text"
+                                               name="lastname"
+                                               required="true"
+                                               placeholder="ex: Silva"
+                                               formControlName="lastName"
+                                               data-msg="Campo obrigatório"
+                                        />
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Email<span class="star">*</span></label>
+                                        <input class="form-control"
+                                               type="text"
+                                               name="email"
+                                               email="true"
+                                               placeholder="ex: hello@mail.com"
+                                               formControlName="email"
+                                               data-msg="Campo obrigatório"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="tab2">
+                            <h5 class="text-center"></h5>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label class="control-label">URL<span class="star">*</span></label>
+                                        <input class="form-control"
+                                               type="text"
+                                               name="website"
+                                               url="true"
+                                               placeholder="ex: http://www.zzzzzz.com"
+                                               data-msg="Campo obrigatório"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Outra URL</label>
+                                        <input class="form-control"
+                                               type="text"
+                                               name="framework"
+                                               placeholder="ex: http://www.zzzzzzz.com"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="control-label">Idioma<span class="star">*</span></label>
+
+                                        <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js,
+                                              that's why we use the "default select" inside this wizard. 
+                                              We will try to contact the guys who are responsibble for the "bootstrap select picker"
+                                               to find a solution. Thank you for your patience.
+                                         -->
+
+                                        <select name="cities" class="form-control">
+                                            <option selected="" disabled="">- Selecione -</option>
+                                            <option value="ms">Bahasa Melayu</option>
+                                            <option value="ca">Català</option>
+                                            <option value="da">Dansk</option>
+                                            <option value="de">Deutsch</option>
+                                            <option value="en">English</option>
+                                            <option value="es">Español</option>
+                                            <option value="fr">Français</option>
+                                            <option value="it">Italiano</option>
+                                            <option value="hu">Magyar</option>
+                                            <option value="nl">Nederlands</option>
+                                            <option value="no">Norsk</option>
+                                            <option value="pl">Polski</option>
+                                            <option value="pt">Português</option>
+                                            <option value="fi">Suomi</option>
+                                            <option value="sv">Svenska</option>
+                                            <option value="tr">Türkçe</option>
+                                            <option value="is">Íslenska</option>
+                                            <option value="cs">Čeština</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Pais</label>
+
+                                        <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js, 
+                                            that's why we use the "default select" inside this wizard. We will try to contact the guys who 
+                                            are responsibble for the "bootstrap select picker" to find a solution. Thank you for your patience.
+                                         -->
+
+                                        <select name="cities" class="form-control">
+                                            <option selected="" disabled="">- Selecione -</option>
+                                            <option value="1">Brasil</option>
+                                            <option value="2">Portugal</option>
+                                            <option value="3">Japao</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="control-label">Preço</label>
+                                        <input class="form-control"
+                                               type="text"
+                                               name="price"
+                                               placeholder="ex: 19,00"
+                                        />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="tab3">
+                            <h2 class="text-center text-space">Ultima etapa <br><small> Clique em "<b>Finalizar</b>" para....</small></h2>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <button type="button" class="btn btn-default btn-fill btn-wd btn-back pull-left">Anterior</button>
+
+                    <button type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right">Próximo</button>
+                    <button type="button" class="btn btn-info btn-fill btn-wd btn-finish pull-right" click="onFinishWizard()">Finalizar</button>
+
+                    <div class="clearfix"></div>
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
