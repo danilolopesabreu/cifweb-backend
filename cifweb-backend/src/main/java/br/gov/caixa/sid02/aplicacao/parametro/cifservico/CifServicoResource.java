@@ -37,7 +37,7 @@ public class CifServicoResource {
     }
 
 	@POST
-	@Path("consulta-por-id")
+	@Path("complementos")
     public CifServicoDto consultarCifServicoPorId(final CifServicoIdDto cifServicoIdDto) {
 		final CifServico cifServicoConsulta = this.cifServicoMapper.toCifServico(new CifServicoDto(cifServicoIdDto));
 		final CifServico cifServico = this.cifServicoService.listarPorCifServicoId(cifServicoConsulta.getId());
